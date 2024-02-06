@@ -1,5 +1,9 @@
 class Pet < ApplicationRecord
   belongs_to :user
   belongs_to :vet, class_name: 'User'
-  has_many :bookings, :posts, :records, :messages, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :posts
+  has_many :records
+  has_many :messages
+
 end
