@@ -1,1 +1,28 @@
 <h1>Pet Dashboard</h1>
+
+<% @pets.each do |pet| %>
+  <div>
+    <%= image_tag(pet.avatar_pic) %>
+    <h2><%= pet.name %></h2>
+    <h2><%= pet.species %></h2>
+    <h2><%= pet.breed %></h2>
+    <h2><%= pet.age %></h2>
+
+    <%= link_to "Pet Details", pet_path(pet) %>
+  </div>
+<% end %>
+
+
+<!-- Button to trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal">
+  Add a New Pet
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= render 'pets/form', pet: @pet %>
+    </div>
+  </div>
+</div>
