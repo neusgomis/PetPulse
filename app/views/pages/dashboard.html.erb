@@ -2,17 +2,11 @@
 
 <% @pets.each do |pet| %>
   <div>
-    <%= image_tag(pet.avatar_pic) %>
-    <h2><%= pet.name %></h2>
-    <h2><%= pet.species %></h2>
-    <h2><%= pet.breed %></h2>
-    <h2><%= pet.age %></h2>
-    <h2><%= pet.weight %></h2>
-
-    <%= link_to "Pet Details", pet_path(pet) %>
+    <%= link_to posts_path(pet) do %> <!-- replace with correct path, either posts or records -->
+      <%= image_tag(pet.avatar_pic, alt: "Pet Avatar Picture") %>
+    <% end %>
   </div>
 <% end %>
-
 
 <!-- Icon to trigger modal -->
 <span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
