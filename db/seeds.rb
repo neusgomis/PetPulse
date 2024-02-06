@@ -20,3 +20,5 @@ User.create!(email: "janedoe@gmail.com", password: "123456", first_name: "Jane",
 Pet.create!(name: "Buddy", breed: "Golden Retriever", species: "Dog", weight: 70.05, age: 1, gender: "man", user_id: 1, vet_id: 1)
 Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user_id: 2, vet_id: 2)
 Pet.create!(name: "Luna", breed: "Siamese", species: "Cat", weight: 8.05, age: 3, gender: "female", user_id: 3, vet_id: 3)
+
+
