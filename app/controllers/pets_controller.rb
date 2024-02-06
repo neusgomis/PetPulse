@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_action :set_pet, only: [:show]
+
   def new
     @pet = Pet.new
   end
@@ -16,7 +18,11 @@ class PetsController < ApplicationController
 
   private
 
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
+
   def pet_params
-    params.require(:pet).permit(:name, :avatar_pic, :age)
+    params.require(:pet).permit(:name, :avatar_pic, :species, :age, :breed, :color)
   end
 end
