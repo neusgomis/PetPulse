@@ -1,0 +1,8 @@
+<h1>Your Events</h1>
+
+<% @bookings.each do |booking| %>
+  <div>
+    <h2><%= booking.name %></h2>
+    <p><%= booking.description %></p>
+    <p><%= booking.date_time %></p>
+  </div>
