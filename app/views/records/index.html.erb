@@ -1,0 +1,22 @@
+<!-- Page Title -->
+<h1>Medical Records for <%= @pet.name %></h1>
+
+<!-- New Record Button-->
+<%= link_to 'Add New Record', new_pet_record_path(@pet, @record), class: "btn btn-primary" %>
+
+
+<!-- TODO: BACK TO DASHBOARD -->
+<!-- TODO: TURN PAGE INTO MODAL?? -->
+
+<!-- Iterate over pet's records and display them -->
+<% @records.each do |record| %>
+  <div class="card">
+    <div class="card-header"><%= record.title %></div>
+    <div class="card-body">
+      <p><%= record.content %></p>
+      <p><%= link_to 'Edit', edit_pet_record_path(@pet, record), class: "btn btn-primary" %></p>
+      <p><%= link_to 'Delete', pet_record_path(@pet, record), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+    </div>
+  </div>
+<% end %>
+<!-- End Of Iteration -->
