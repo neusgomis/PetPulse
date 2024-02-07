@@ -11,7 +11,11 @@ class MessagesController < ApplicationController
     @message.pet = @pet
     @message.user = current_user
     if @message.save
-      redirect_to pet_path(@pet)
+      ChatpetChannel.broadcast_to(
+        @pet,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     else
       render "pets/show", status: :unprocessable_entity
     end

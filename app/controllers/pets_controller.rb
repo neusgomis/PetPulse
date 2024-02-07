@@ -2,6 +2,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @message = Message.new
   end
 
   def create
