@@ -5,5 +5,4 @@ class Pet < ApplicationRecord
   has_many :posts
   has_many :records
   has_many :messages
-
 end
