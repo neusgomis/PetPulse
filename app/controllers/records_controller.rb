@@ -4,18 +4,13 @@ class RecordsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # Get all records for the pet
     @records = @pet.records
+    # Get a new instance of record for Modal form in index page
+    @record = Record.new
   end
 
   def show
     # Get the record by id - calling the set_record private method
     @record = set_record
-  end
-
-  def new
-    # Get the pet by id
-    @pet = Pet.find(params[:pet_id])
-    # Create empty instance of record for the form
-    @record = Record.new
   end
 
   def create
@@ -33,13 +28,6 @@ class RecordsController < ApplicationController
       # If not saved, render the new form again
       render action: 'new'
     end
-  end
-
-  def edit
-    # Get the pet by id
-    @pet = Pet.find(params[:pet_id])
-    # Get the pet record by id
-    @record = Record.find(params[:id])
   end
 
   def update
@@ -63,12 +51,12 @@ class RecordsController < ApplicationController
     # Destroy the record
     @record.destroy
     # Redirect to the pet records index page
-    redirect_to pet_records_path, notice: "Successfully destroyed record."
+    redirect_to pet_records_path, notice: "Successfully deleted record."
   end
 
-  private
-
   # Private Methods
+
+  private
 
   # Get the record by id
   def set_record
