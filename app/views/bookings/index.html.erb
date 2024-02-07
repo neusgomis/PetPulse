@@ -1,8 +1,39 @@
-<h1>Your Booking</h1>
 
-<% @bookings.each do |booking| %>
-  <div>
-    <p><%= booking.description %></p>
-    <p><%= booking.date_time %></p>
+<div class="d-flex container">
+  <%= render 'calendar', pet: @pet, booking: @booking %>
+
+<div class="centered-content event-page" style="text-align: center;">
+  <h1>Your Event</h1>
+
+  <% @bookings.each do |booking| %>
+    <div>
+      <p><%= booking.description %></p>
+      <p><%= booking.date_time %></p>
+        <%= link_to "Delete",
+          booking_path(booking),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn btn-danger" # Add CSS classes here
+        %>
+    </div>
+  <% end %>
+
+
+  <!-- Icon to trigger modal -->
+  <div class="event-btn">
+    <span type="icon" data-bs-toggle="modal" data-bs-target="#addBookingModal">
+    <!-- Placeholder icon below - replace this later!-->
+    <button type="button" class="btn btn-primary">Create an event</button>
+  </span>
   </div>
-<% end %>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render 'form', pet: @pet, booking: @booking %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
