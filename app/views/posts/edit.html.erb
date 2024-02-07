@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Editing post</h1>
 
- <%= simple_form_for([@post]) do |f| %>
+ <%= simple_form_for([@pet, @post]) do |f| %>
   <%= f.input :title %>
   <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
   <%= f.submit class: 'btn btn-primary my-4' %>
 
 <% end %>
-  <%= link_to 'Posts', pet_posts_path %> |
+  <%= link_to 'Back to posts', pet_posts_path %> |
   <%= link_to 'Back', pet_posts_path %>
 </div>
