@@ -2,7 +2,11 @@
 
 <% @pets.each do |pet| %>
   <% if pet.avatar_pic.attached? %>
-    <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+    <div data-controller="avatar-click" data-avatar-click-target="avatar" data-pet-id="<%= pet.id %>">
+      <a href="<%= pet_path(pet) %>">
+        <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+      </a>
+    </div>
   <% else %>
     <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
   <% end %>
@@ -23,26 +27,30 @@
   </div>
 </div>
 
+<!-- Cards that will redirect to the specific pet page -->
 <div class="card-dashboard-container">
-  <div class="card-dashboard">
-    <%= image_tag("records.png", alt: "Medical Records") %>
-    <div class="card-dashboard-description">
-      <h2>Medical Records</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-    </div>
+  <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="records" data-pet-id="<%= @pet.id %>">
+      <%= image_tag("records.png", alt: "Medical Records") %>
+      <div class="card-dashboard-description">
+        <h2>Medical Records</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </a>
   </div>
-  <div class="card-dashboard">
-    <%= image_tag("journal.png", alt: "Pet Journal") %>
-    <div class="card-product-description">
-      <h2>Journal</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-    </div>
+  <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="journal" data-pet-id="<%= @pet.id %>">
+      <%= image_tag("journal.png", alt: "Pet Journal") %>
+      <div class="card-product-description">
+        <h2>Journal</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </a>
   </div>
-  <div class="card-dashboard">
-    <%= image_tag("training.png", alt: "Pet Training") %>
-    <div class="card-product-description">
-      <h2>Pet Training</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-    </div>
+  <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="training" data-pet-id="<%= @pet.id %>">
+      <%= image_tag("training.png", alt: "Pet Training") %>
+      <div class="card-product-description">
+        <h2>Pet Training</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </a>
   </div>
 </div>
