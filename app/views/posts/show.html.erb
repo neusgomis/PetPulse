@@ -4,6 +4,10 @@
 <h3><%= @post.title %></h3>
 
 <%= @post.content %>
+<% @post.images.each do |img| %>
+  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img' %>
+
+<% end %>
 
 <div>
   <%= link_to edit_pet_post_path(@pet, @post) do %>
