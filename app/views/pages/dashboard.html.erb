@@ -1,19 +1,11 @@
 <h1>Pet Dashboard</h1>
 
-  <% if @pet %>
-    <h2>Latest Pet:</h2>
-    <p>Name: <%= @pet.name %></p>
-  <% else %>
-    <p>No pets found.</p>
-  <% end %>
-
-
 <% @pets.each do |pet| %>
-  <div>
-    <%= link_to posts_path(pet) do %> <!-- replace with correct path, either posts or records -->
-      <%= image_tag(pet.avatar_pic, alt: "Pet Avatar Picture") %>
-    <% end %>
-  </div>
+  <% if pet.avatar_pic.attached? %>
+    <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+  <% else %>
+    <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
+  <% end %>
 <% end %>
 
 <!-- Icon to trigger modal -->
@@ -33,22 +25,18 @@
 
 <div class="card-dashboard-container">
   <div class="card-dashboard">
-    <%# <%= link_to pet_records_path do %>
-      <%= image_tag("records.png", alt: "Medical Records") %>
-      <div class="card-dashboard-description">
-        <h2>Medical Records</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    <%# <% end %>
+    <%= image_tag("records.png", alt: "Medical Records") %>
+    <div class="card-dashboard-description">
+      <h2>Medical Records</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
   </div>
   <div class="card-dashboard">
-    <%# <%= link_to pet_posts_path do %>
-      <%= image_tag("journal.png", alt: "Pet Journal") %>
-      <div class="card-product-description">
-        <h2>Journal</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    <%# <% end %>
+    <%= image_tag("journal.png", alt: "Pet Journal") %>
+    <div class="card-product-description">
+      <h2>Journal</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
   </div>
   <div class="card-dashboard">
     <%= image_tag("training.png", alt: "Pet Training") %>

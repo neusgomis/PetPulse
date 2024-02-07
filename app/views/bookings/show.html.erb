@@ -1,0 +1,14 @@
+<!-- Icon to trigger modal -->
+<span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
+  <!-- Placeholder icon below - replace this later!-->
+  <i class="fas fa-plus"></i>
+</span>
+
+<!-- Modal -->
+<div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= render 'pets/form', pet: @pet %>
+    </div>
+  </div>
+</div>
