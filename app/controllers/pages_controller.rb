@@ -4,5 +4,5 @@ class PagesController < ApplicationController
     @pet = Pet.new # for the form
     @created_pets = Pet.all
     @vets = User.where(vet: true)
-  end
+ end
 end

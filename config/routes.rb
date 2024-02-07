@@ -14,6 +14,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:show, :create]
   end
   resources :bookings, only: [:destroy]
-
   get '/dashboard', to: 'pages#dashboard'
 end
