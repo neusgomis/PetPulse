@@ -10,7 +10,7 @@ class PetsController < ApplicationController
     @pet.user = current_user
 
     if @pet.save
-      redirect_to @pet, notice: 'Pet was successfully added!'
+      redirect_to dashboard_path, notice: 'Pet was successfully added!'
     else
       render :new
     end
