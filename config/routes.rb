@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :messages, only: [:show, :create]
   end
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  get '/dashboard', to: 'pages#dashboard'
 end
