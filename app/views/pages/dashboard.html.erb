@@ -1,7 +1,11 @@
 <h1>Pet Dashboard</h1>
 
 <% @pets.each do |pet| %>
-  <div> <p>Name: <%= pet.name %></p></div>
+  <% if pet.avatar_pic.attached? %>
+    <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+  <% else %>
+    <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
+  <% end %>
 <% end %>
 
 <!-- Icon to trigger modal -->
