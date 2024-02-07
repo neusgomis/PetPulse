@@ -27,30 +27,27 @@
   </div>
 </div>
 
-<!-- Cards that will redirect to the specific pet page -->
+<!-- Cards representing different sections of the pet dashboard -->
 <div class="card-dashboard-container">
   <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="records" data-pet-id="<%= @pet.id %>">
-      <%= image_tag("records.png", alt: "Medical Records") %>
-      <div class="card-dashboard-description">
-        <h2>Medical Records</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </a>
+    <%= image_tag("records.png", alt: "Medical Records") %>
+    <div class="card-dashboard-description">
+      <h2>Medical Records</h2>
+      <p>View and manage your pet's medical records.</p>
+    </div>
   </div>
   <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="journal" data-pet-id="<%= @pet.id %>">
-      <%= image_tag("journal.png", alt: "Pet Journal") %>
-      <div class="card-product-description">
-        <h2>Journal</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </a>
+    <%= image_tag("journal.png", alt: "Pet Journal") %>
+    <div class="card-product-description">
+      <h2>Journal</h2>
+      <p>Keep track of your pet's daily activities and milestones.</p>
+    </div>
   </div>
   <div class="card-dashboard" data-controller="avatar-click" data-avatar-click-target="training" data-pet-id="<%= @pet.id %>">
-      <%= image_tag("training.png", alt: "Pet Training") %>
-      <div class="card-product-description">
-        <h2>Pet Training</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </a>
+    <%= image_tag("training.png", alt: "Pet Training") %>
+    <div class="card-product-description">
+      <h2>Pet Training</h2>
+      <p>Access training resources and track your pet's progress.</p>
+    </div>
   </div>
 </div>
