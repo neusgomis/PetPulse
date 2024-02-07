@@ -1,6 +1,32 @@
+<div class="container-bk">
 
-<%= simple_form_for [@pet, @booking] do |f| %>
-  <%= f.input :date_time %>
-  <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+  <div>
+
+
+    <div class="row justify-content-center">
+
+      <div class="col-sm-6 booking-form">
+        <h1 class="text-center mt-4">Create your booking</h1>
+        <%= simple_form_for [@pet, @booking] do |f| %>
+
+          <div class="mb-3">
+            <%= f.input :date_time %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.input :description %>
+          </div>
+
+          <%= f.hidden_field :user_id, value: current_user.id %>
+
+          <div class="btn-light">
+            <%= f.submit 'Create event', class:"btn btn-primary" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
