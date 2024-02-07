@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :pets do
-    resources :bookings
+    resources :bookings, only: [:create, :new, :show, :index]
     resources :records
     resources :posts
-    resources :messages, only: [:show, :create]
+    resources :messages, only: [:create]
   end
-
+  resources :bookings, only: [:destroy]
   get '/dashboard', to: 'pages#dashboard'
 end
