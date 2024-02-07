@@ -1,4 +1,10 @@
 class PetsController < ApplicationController
+
+  def show
+    @pet = Pet.find(params[:id])
+    @message = Message.new
+  end
+
   def create
     @pet = Pet.new(pet_params)
     @pet.user = current_user
