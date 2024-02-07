@@ -1,6 +1,7 @@
 <%= simple_form_for([@pet, @post]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
-  <%= f.submit class: 'btn btn-primary my-4' %>
-  
+  <div class="form-group">
+    <%= f.input :title %>
+    <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
+    <%= f.submit class: 'btn btn-primary my-4' %>
+  </div>
 <% end %>

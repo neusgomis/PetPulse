@@ -1,0 +1,19 @@
+<div class="container">
+
+<div class="card my-2 p-2">
+<h3><%= @post.title %></h3>
+
+<%= @post.content %>
+
+<div>
+  <%= link_to edit_pet_post_path(@pet, @post) do %>
+    <i class="fa-regular fa-pen-to-square"></i>
+  <% end %>
+
+  <%= link_to pet_post_path(@pet, @post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
+</div>
+
+<%= link_to 'Back to Posts', pet_posts_path, class: "btn btn-primary" %>
+</div>
