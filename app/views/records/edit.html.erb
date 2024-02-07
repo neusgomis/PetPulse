@@ -1,0 +1,12 @@
+<h1>Update Medical Record for <%= @pet.name %></h1>
+
+<!-- Form to edit pet record -->
+<!-- TODO: Allow File Edit -->
+<%= simple_form_for([@pet, @record]) do |f| %>
+  <div class="form-group">
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<!-- End of Edit Form -->
