@@ -4,6 +4,11 @@ class RecordsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # Get all records for the pet
     @records = @pet.records
+    # Filter records when a search query is present
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR content ILIKE :query"
+      @records = @records.where(sql_subquery, query: "%#{params[:query]}%")
+    end
     # Get a new instance of record for Modal form in index page
     @record = Record.new
   end
