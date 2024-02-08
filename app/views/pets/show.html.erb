@@ -1,0 +1,14 @@
+<div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
+  <h1>#<%= @pet.name %></h1>
+
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @pet.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@pet, @message], html: {class: "d-flex"} do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@pet.name}", wrapper_html: {class: "flex-grow-1"} %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

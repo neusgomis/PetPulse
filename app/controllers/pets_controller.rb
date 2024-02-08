@@ -1,8 +1,8 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show]
 
-  def new
-    @pet = Pet.new
+  def show
+    @pet = Pet.find(params[:id])
+    @message = Message.new
   end
 
   def create
@@ -12,7 +12,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to dashboard_path, notice: 'Pet was successfully added!'
     else
-      render :new
+      render "dashboard"
     end
   end
 
@@ -23,6 +23,6 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :avatar_pic, :species, :age, :breed, :color)
+    params.require(:pet).permit(:name, :avatar_pic, :species, :age, :breed, :color, :vet_id, :weight)
   end
 end
