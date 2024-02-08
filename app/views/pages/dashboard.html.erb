@@ -2,7 +2,7 @@
 
 <% @pets.each do |pet| %>
   <% if pet.avatar_pic.attached? %>
-    <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+    <%= image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
   <% else %>
     <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
   <% end %>
