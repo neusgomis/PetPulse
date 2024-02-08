@@ -1,0 +1,21 @@
+.post-pic-large {
+  width: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.post-pic-small {
+  width: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
