@@ -9,3 +9,6 @@ class Pet < ApplicationRecord
 
   has_one_attached :avatar_pic, service: :cloudinary
 end
+
+@pet.posts
+@pet.records
