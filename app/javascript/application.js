@@ -3,6 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-
-import AvatarClickController from "./controllers/avatar_click_controller.js"
-Stimulus.register("avatar-click", AvatarClickController)
