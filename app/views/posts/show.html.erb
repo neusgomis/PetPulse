@@ -5,7 +5,7 @@
 
 <%= @post.content %>
 <% @post.images.each do |img| %>
-  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img' %>
+  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large' %>
 
 <% end %>
 

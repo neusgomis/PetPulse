@@ -2,14 +2,35 @@
 <h1>Journal</h1>
   <% @posts.each do |post| %>
     <div class="card my-2 p-2">
-      <%# <h2><%= link_to post.title, post %>
-      <%# <%= post.content[0..100] %>
+
       <h2>
         <%= post.title %>
       </h2>
       <p>
         <%= post.content[0..100] %>
       </p>
+
+      <% unless post.images.all.empty?  %>
+        <% post.images.each do |img| %>
+          <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-small mb-3' %>
+        <% end %>
+      <% end %>
+
+      <% unless post.files.all.empty?  %>
+      <h5>Attached Files:</h5>
+      <ul>
+        <% post.files.each do |file| %>
+
+        <li>
+          <% if file.previewable? %>
+
+            <%= link_to "#{file.filename}",  rails_blob_path(file, disposition: "attachment") %>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+
 
       <%= link_to "View Post", pet_post_path(@pet, post) %>
 
