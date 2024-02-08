@@ -2,6 +2,8 @@
   <div class="form-group">
     <%= f.input :title %>
     <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
+    <%= f.input :images, as: :file, accept: 'image/png, image/gif, image/jpeg', multiple:true, class: "form-control" %>
+    <%= f.input :files, as: :file, accept: 'file/pdf', multiple:true, class: "form-control" %>
     <%= f.submit class: 'btn btn-primary my-4' %>
   </div>
 <% end %>

@@ -10,13 +10,13 @@
 
 
 # Create a pets
-User.create!(email: "jasonbourne@gmail.com", password: "123456", first_name: "Jason", last_name: "Bourne")
+jason_bourne=User.create!(email: "jasonbourne@gmail.com", password: "123456", first_name: "Jason", last_name: "Bourne")
 
-User.create!(email: "johnsmith@gmail.com", password: "abcdef", first_name: "John", last_name: "Smith")
+james_bond = User.create!(email: "johnsmith@gmail.com", password: "abcdef", first_name: "John", last_name: "Smith")
 
-User.create!(email: "janedoe@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe")
+slimd_shady= User.create!(email: "janedoe@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe")
 
 
-Pet.create!(name: "Buddy", breed: "Golden Retriever", species: "Dog", weight: 70.05, age: 1, gender: "male", user_id: 1, vet_id: 1)
-Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user_id: 2, vet_id: 2)
-Pet.create!(name: "Luna", breed: "Siamese", species: "Cat", weight: 8.05, age: 3, gender: "female", user_id: 3, vet_id: 3)
+Pet.create!(name: "Buddy", breed: "Golden Retriever", species: "Dog", weight: 70.05, age: 1, gender: "male", user: jason_bourne, vet: james_bond)
+Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user: james_bond, vet: jason_bourne)
+Pet.create!(name: "Luna", breed: "Siamese", species: "Cat", weight: 8.05, age: 3, gender: "female", user: james_bond, vet: jason_bourne)

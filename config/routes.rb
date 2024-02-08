@@ -11,9 +11,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :new, :show, :index]
     resources :records
     resources :posts
-    resources :messages, only: [:show, :create]
+    resources :messages, only: [:create]
   end
   resources :bookings, only: [:destroy]
-
   get '/dashboard', to: 'pages#dashboard'
 end

@@ -5,6 +5,11 @@
 
 <%= @post.content %>
 
+<%# iterates over the images in each post and creates a preview pic, styled by post-pic-large %>
+<% @post.images.each do |img| %>
+  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large' %>
+<% end %>
+
 <div>
   <%= link_to edit_pet_post_path(@pet, @post) do %>
     <i class="fa-regular fa-pen-to-square"></i>
