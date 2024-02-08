@@ -1,5 +1,58 @@
+
+<h1>Pet Dashboard</h1>
+
+<%= render "pages/avatar_link" %>
+<%= render "bookings/calendar" %>
+
+  <!-- Icon to trigger modal -->
+  <span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
+    <!-- Placeholder icon below - replace this later!-->
+    <i class="fas fa-plus"></i>
+  </span>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render 'pets/form', pet: @pet_new %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards representing sections of our first added pet -->
+  <div class="card-dashboard-container">
+    <div class="card-dashboard">
+      <%= link_to pet_records_path(@pet) do %>
+        <%= image_tag("records.png", alt: "Medical Records") %>
+      <% end %>
+      <div class="card-dashboard-description">
+        <h2>Medical Records</h2>
+        <p>View and manage your pet's medical records.</p>
+      </div>
+    </div>
+
+    <div class="card-dashboard">
+      <%= link_to pet_posts_path(@pet) do %>
+        <%= image_tag("journal.png", alt: "Pet Journal") %>
+      <% end %>
+      <div class="card-product-description">
+        <h2>Journal</h2>
+        <p>Keep track of your pet's daily activities and milestones.</p>
+      </div>
+    </div>
+
+    <div class="card-dashboard">
+      <%= image_tag("training.png", alt: "Pet Training") %>
+      <div class="card-product-description">
+        <h2>Pet Training</h2>
+        <p>Access training resources and track your pet's progress.</p>
+      </div>
+    </div>
+  </div>
+
 <div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
-  <h1>#<%= @pet.name %></h1>
+  <%= image_tag %>
+  <h1><%= @pet.name %>'s Chatroom</h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @pet.messages.each do |message| %>
@@ -12,3 +65,4 @@
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>
+

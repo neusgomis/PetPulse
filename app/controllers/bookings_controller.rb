@@ -1,18 +1,22 @@
 class BookingsController < ApplicationController
 
   def index
-  #  @bookings = Booking.all
+    #  @bookings = Booking.all
     @booking = Booking.new
     @pet = Pet.find(params[:pet_id])
-
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
-    @bookings = Booking.where(date_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @bookings = @pet.bookings.where(date_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+
+
   end
 
   def show
     @booking = Booking.find(params[:id])
-    @pet = Pet.find(params[:pet_id])
+    @new_booking = Booking.new
+    @pet = @booking.pet
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @bookings = @pet.bookings.where(date_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
@@ -22,14 +26,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
-    @pet = Pet.find(params[:pet_id])
+    if params[:booking][:pet_id].present?
+      @pet = Pet.find(params[:booking][:pet_id])
+    else
+      @pet = Pet.find(params[:pet_id])
+    end
     @booking = Booking.new(booking_params)
     @booking.pet = @pet
     @booking.user = current_user
 
     if @booking.save
-      redirect_to pet_bookings_path(@pet) # Modify this line to redirect to the desired page
+      if params[:booking][:pet_id].present?
+        redirect_to pet_calender_users_path
+      else
+        redirect_to  pet_calender_users_path(@pet)
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,7 +50,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
 
-    redirect_to pet_bookings_path(@booking.pet) # Modify this line to redirect to the desired page
+    redirect_to  pet_calender_users_path # Modify this line to redirect to the desired page
   end
 
   def booking_params

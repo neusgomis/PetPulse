@@ -1,0 +1,9 @@
+<div class="form-event">
+<%= simple_form_for booking do |f| %>
+  <%= f.input :date_time %>
+  <%= f.input :description, data: { editor: 'markdown' }, rows: 10 %>
+  <%= f.association :pet, collection: current_user.pets %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Create event', class:"btn btn-primary" %>
+<% end %>
+</div>
