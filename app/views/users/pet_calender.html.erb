@@ -1,13 +1,37 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: pet_calender_users_path, method: :get, class: "d-flex my-3" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
+<h1>Your Pets</h1>
 
-  <%= render 'calendar', pet: @pet, booking: @booking %>
+<div class="d-flex">
+
+<div class="calendar-container">
+<%= month_calendar(events:@bookings) do |date, bookings| %>
+  <%= date.day %>
+  <% bookings.each do |booking| %>
+    <div class="calender-description">
+      <%= link_to booking.pet.name, booking_path(booking) %>
+    </div>
+  <% end %>
+
+<% end %>
+</div>
 
 <div class="centered-content event-page" style="text-align: center;">
   <h1>Your Event</h1>
-
   <% @bookings.each do |booking| %>
     <div>
-      <p><%= booking.description %></p>
+      <p><%= booking.pet.name %></p>
       <p><%= booking.date_time %></p>
         <%= link_to "Delete",
           booking_path(booking),
@@ -31,9 +55,12 @@
   <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <%= render 'form', pet: @pet, booking: @booking %>
+        <%= render 'form', booking: @booking %>
       </div>
     </div>
   </div>
 </div>
+
+
+
 </div>

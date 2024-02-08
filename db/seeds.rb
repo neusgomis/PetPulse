@@ -18,5 +18,5 @@ slimd_shady= User.create!(email: "janedoe@gmail.com", password: "123456", first_
 
 
 Pet.create!(name: "Buddy", breed: "Golden Retriever", species: "Dog", weight: 70.05, age: 1, gender: "male", user: jason_bourne, vet: james_bond)
-Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user: james_bond, vet: jason_bourne)
-Pet.create!(name: "Luna", breed: "Siamese", species: "Cat", weight: 8.05, age: 3, gender: "female", user: james_bond, vet: jason_bourne)
+Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user: jason_bourne, vet: jason_bourne)
+Pet.create!(name: "Luna", breed: "Siamese", species: "Cat", weight: 8.05, age: 3, gender: "female", user: jason_bourne, vet: jason_bourne)

@@ -8,3 +8,6 @@ class Pet < ApplicationRecord
 
   # has_one_attached :avatar_pic
 end
+
+@pet.posts
+@pet.records
