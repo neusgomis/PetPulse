@@ -51,7 +51,6 @@
   </div>
 
 <div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
-  <%= image_tag %>
   <h1><%= @pet.name %>'s Chatroom</h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
@@ -65,4 +64,3 @@
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>
-

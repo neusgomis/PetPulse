@@ -1,11 +1,13 @@
 <% @pets.each do |pet| %>
     <% if pet.avatar_pic.attached? %>
       <div >
-        <%= link_to pet_path(pet) do%>
+        <%= link_to pet_path(pet) do %>
           <%= cl_image_tag pet.avatar_pic.key, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
         <% end %>
       </div>
     <% else %>
+      <%= link_to pet_path(pet) do %>
       <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
     <% end %>
+    <%end%>
   <% end %>
