@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     if params[:booking][:pet_id].present?
       @pet = Pet.find(params[:booking][:pet_id])
     else
-    @pet = Pet.find(params[:pet_id])
+      @pet = Pet.find(params[:pet_id])
     end
     @booking = Booking.new(booking_params)
     @booking.pet = @pet
