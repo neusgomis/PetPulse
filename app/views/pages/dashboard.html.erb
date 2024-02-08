@@ -19,30 +19,18 @@
   </div>
 
 <!-- Button to redirect to ChatRoom -->
-<%= link_to "Chat to your vet", pet_path(@pet), class: "btn btn-primary"%>
+<% if @pet %>
+  <%= link_to "Chat to your vet", pet_path(@pet), class: "btn btn-primary"%>
+<% end %>
 
-<!-- Cards to redirect to specific pet information -->
-<div class="card-dashboard-container">
-  <div class="card-dashboard">
-    <%= image_tag("records.png", alt: "Medical Records") %>
-    <div class="card-dashboard-description">
-      <h2>Medical Records</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-    </div>
-  </div>
-  <div class="card-dashboard">
-    <%= image_tag("journal.png", alt: "Pet Journal") %>
-    <div class="card-product-description">
-      <h2>Journal</h2>
-      <p>Product description with <strong>relevant info</strong> only.</p>
-
-      
-  <!-- Cards representing different sections of the pet dashboard -->
+<!-- Cards representing different sections of the pet dashboard -->
   <div class="card-dashboard-container">
     <div class="card-dashboard">
+    <% if @pet %>
       <%= link_to pet_records_path(@pet) do %>
         <%= image_tag("records.png", alt: "Medical Records") %>
       <% end %>
+    <% end %>
       <div class="card-dashboard-description">
         <h2>Medical Records</h2>
         <p>View and manage your pet's medical records.</p>
@@ -50,8 +38,10 @@
    </div>
 
     <div class="card-dashboard">
-      <%= link_to pet_posts_path(@pet) do %>
-        <%= image_tag("journal.png", alt: "Pet Journal") %>
+      <% if @pet %>
+        <%= link_to pet_posts_path(@pet) do %>
+          <%= image_tag("journal.png", alt: "Pet Journal") %>
+        <% end %>
       <% end %>
       <div class="card-product-description">
         <h2>Journal</h2>
