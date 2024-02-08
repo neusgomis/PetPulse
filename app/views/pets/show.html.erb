@@ -1,5 +1,6 @@
 <div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
-  <h1>#<%= @pet.name %></h1>
+  <%= image_tag %>
+  <h1><%= @pet.name %>'s Chatroom</h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @pet.messages.each do |message| %>
