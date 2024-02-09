@@ -1,0 +1,28 @@
+.search {
+  border-radius: 60px;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  padding: 0px;
+  width: 100%;
+  height: 36px;
+  font-size: 14px;
+  overflow: hidden;
+  position: relative;
+  margin-left: 0px;
+  .fa-magnifying-glass{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #000;
+  }
+  .form-control {
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 14px;
+    height: 36px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
