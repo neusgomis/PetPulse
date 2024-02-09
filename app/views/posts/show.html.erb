@@ -1,6 +1,7 @@
 <div class="container">
 
 <div class="card my-2 p-2">
+<h4><%= @post.created_at.strftime("%B %d, %Y %H:%M") %></h4>
 <h3><%= @post.title %></h3>
 
 <%= @post.content %>
@@ -8,6 +9,21 @@
 <%# iterates over the images in each post and creates a preview pic, styled by post-pic-large %>
 <% @post.images.each do |img| %>
   <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large' %>
+<% end %>
+
+<% unless @post.files.all.empty?  %>
+<h5>Attached Files:</h5>
+<ul>
+  <% @post.files.each do |file| %>
+  <li>
+<%# Checks if the file is previewable and creates a download link to the file if it is %>
+<%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
+    <% if file.previewable? %>
+      <%= link_to "#{file.filename}",  rails_blob_path(file, disposition: "attachment") %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
 <% end %>
 
 <div>
@@ -19,6 +35,8 @@
     <i class="fa-regular fa-trash-can"></i>
   <% end %>
 </div>
+
+
 
 <%= link_to 'Back to Posts', pet_posts_path, class: "btn btn-primary" %>
 </div>
