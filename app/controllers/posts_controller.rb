@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     # @pet = Pet.find(params[:pet_id])
     @posts = Post.all
     @pet = Pet.find(params[:pet_id])
+    @post = Post.new
   end
 
   def show

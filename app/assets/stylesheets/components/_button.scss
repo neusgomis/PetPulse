@@ -1,0 +1,36 @@
+.btn-primary {
+  background-color: $pp-purple;
+  border-radius: 16px;
+}
+
+.btn {
+  font-family: 'Sniglet';
+}
+
+.large-button {
+  background-color: $pp-purple;
+  border-radius: 30px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 18px auto;
+  align-items: center;
+  font-family: 'Sniglet';
+
+  &:hover {
+    background-color: darken($pp-purple, 10%);
+  }
+}
+
+.btn-success {
+  background-color: $pp-teal;
+  color: white;
+  font-family: 'Sniglet';
+  border-radius: 16px;
+
+  &:hover {
+    background-color: darken($pp-teal, 10%);
+    color: white;
+  }
+}

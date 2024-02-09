@@ -1,20 +1,26 @@
-<div>
-<h1><%= @pet.name %></h1>
+<div class="d-flex justify-content-center booking-pg">
+
+
+<div styl">
+  <h1><%= @pet.name %></h1>
 </div>
 <div class="d-flex container">
+
   <%= render 'calendar', pet: @pet, booking: @booking %>
 
-<div class="centered-content event-page" style="text-align: center;">
-  <h1>Description</h1>
+  <div class="centered-content event-page" style="text-align: center;">
+    <h1>Description</h1>
     <div>
       <p><%= @booking.description %></p>
     </div>
 
-  <!-- Icon to trigger modal -->  <!-- Modal -->
-  <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <%= render 'form', pet: @pet, booking: @new_booking %>
+    <!-- Icon to trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <%= render 'form', pet: @pet, booking: @new_booking %>
+        </div>
       </div>
     </div>
   </div>

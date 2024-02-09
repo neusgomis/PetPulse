@@ -1,8 +1,10 @@
+<!-- This code is responsible for rendering a form for creating a booking event. It uses the simple_form gem to generate the form fields. The form includes inputs for date and time, description (with a markdown editor), and a hidden field for the user ID. The form is submitted with a 'Create event' button. -->
+
 <div class="form-event">
-<%= simple_form_for([pet, booking]) do |f| %>
-  <%= f.input :date_time %>
-  <%= f.input :description, data: { editor: 'markdown' }, rows: 10 %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit 'Create event', class:"btn btn-primary" %>
-<% end %>
+  <%= simple_form_for([pet, booking]) do |f| %>
+    <%= f.input :date_time %>
+    <%= f.input :description, data: { editor: 'markdown' }, rows: 10 %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit 'Create event', class:"btn btn-primary" %>
+  <% end %>
 </div>
