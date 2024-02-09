@@ -10,7 +10,8 @@
       </h2>
 <%# Display someof the Post Content %>
       <p>
-        <%= post.content[0..100] %>
+        <%= post.content[0..200] %>
+        <small>...(Click View to see whole post)</small>
       </p>
 
 <%# Checks if there are no images attached to the post and iterates over the images if there are %>
@@ -31,13 +32,12 @@
 <%# Checks if the file is previewable and creates a download link to the file if it is %>
 <%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
           <% if file.previewable? %>
-            <%= link_to "#{file.filename}",  rails_blob_path(file, disposition: "attachment") %>
+            <%= link_to "#{file.filename}", rails_blob_path(file, disposition: "attachment") %>
           <% end %>
         </li>
         <% end %>
       </ul>
       <% end %>
-
       <div>
         <%= link_to "View", pet_post_path(@pet, post) %>
         <%= link_to edit_pet_post_path(@pet, post) do %>
@@ -48,14 +48,15 @@
         <% end %>
       </div>
     </div>
-
   <% end %>
 
   <!-- Icon to trigger Create New Record Modal -->
-<span type="icon" data-bs-toggle="modal" data-bs-target="#addPostModal">
+<button  data-bs-toggle="modal" data-bs-target="#addPostModal" class="btn btn-primary">
   <!-- Placeholder icon below - TODO: replace this later-->
-  <i class="fas fa-plus"></i>
-</span>
+  New Post
+
+
+</button>
 <!-- End of Icon to trigger Create New Record Modal -->
 
 <!-- Create New Record Modal -->
@@ -68,5 +69,5 @@
 </div>
 <!-- End of Create New Record Modal> -->
 
-  <%= link_to "New Post", new_pet_post_path, class: "btn btn-primary" %>
+<%# <%= link_to "New Post", new_pet_post_path, class: "btn btn-primary" %>
 </div>
