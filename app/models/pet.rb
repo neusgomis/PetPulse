@@ -6,8 +6,5 @@ class Pet < ApplicationRecord
   has_many :records
   has_many :messages
 
-  has_one_attached :avatar_pic, service: :cloudinary
+  has_one_attached :avatar_pic
 end
-
-@pet.posts
-@pet.records
