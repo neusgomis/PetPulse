@@ -13,7 +13,7 @@ gem "rails", "~> 7.1.3"
 gem "sprockets-rails"
 
 # Cloudinary
-gem "cloudinary"
+# gem "cloudinary"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -58,7 +58,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "aws-sdk-s3", require: false
-gem 'poppler'
+gem 'mini_magick'
 
 
 

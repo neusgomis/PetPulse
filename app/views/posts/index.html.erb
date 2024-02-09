@@ -1,8 +1,9 @@
 <div class="container">
 <h1>Journal</h1>
   <% @posts.each do |post| %>
-    <div class="card my-2 p-2">
 
+    <div class="card my-2 p-2">
+      <h4><%= post.created_at.strftime("%B %d, %Y %H:%M") %></h4>
 <%#  Display Post Title%>
       <h2>
         <%= post.title %>
@@ -22,7 +23,6 @@
       <% end %>
 
 <%# Checks if there are no files attached to the post and iterates over the files if there are %>
-
       <% unless post.files.all.empty?  %>
       <h5>Attached Files:</h5>
       <ul>
@@ -38,14 +38,11 @@
       </ul>
       <% end %>
 
-
-      <%= link_to "View Post", pet_post_path(@pet, post) %>
-
       <div>
+        <%= link_to "View", pet_post_path(@pet, post) %>
         <%= link_to edit_pet_post_path(@pet, post) do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
-
         <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
           <i class="fa-regular fa-trash-can"></i>
         <% end %>
@@ -53,6 +50,23 @@
     </div>
 
   <% end %>
+
+  <!-- Icon to trigger Create New Record Modal -->
+<span type="icon" data-bs-toggle="modal" data-bs-target="#addPostModal">
+  <!-- Placeholder icon below - TODO: replace this later-->
+  <i class="fas fa-plus"></i>
+</span>
+<!-- End of Icon to trigger Create New Record Modal -->
+
+<!-- Create New Record Modal -->
+<div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= render 'posts/form', post: @post, pet: @pet %>
+    </div>
+  </div>
+</div>
+<!-- End of Create New Record Modal> -->
 
   <%= link_to "New Post", new_pet_post_path, class: "btn btn-primary" %>
 </div>
