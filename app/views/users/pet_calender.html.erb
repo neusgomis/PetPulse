@@ -1,66 +1,61 @@
-<div class="row justify-content-center">
+<!-- This code is the view template for the pet calendar page in the PetPulse application. It allows users to search for events and view their pets' bookings. -->
+
+<div class="row justify-content-center search-evt">
   <div class="col-sm-8 my-3">
-    <%= form_with url: pet_calender_users_path, method: :get, class: "d-flex my-3" do %>
+    <%= form_with url: pet_calender_users_path, method: :get, class: "d-flex my-3 search" do %>
+    <i class="fa-solid fa-magnifying-glass"></i>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Type a keyword"
+            placeholder:"Search"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 
-<h1>Your Pets</h1>
 
-<div class="d-flex">
+<div class="d-flex justify-content-center booking-pg">
 
-<div class="calendar-container">
-<%= month_calendar(events:@bookings) do |date, bookings| %>
-  <%= date.day %>
-  <% bookings.each do |booking| %>
-    <div class="calender-description">
-      <%= link_to booking.pet.name, booking_path(booking) %>
-    </div>
-  <% end %>
+  <div class="calendar-container">
+    <%= month_calendar(events:@bookings) do |date, bookings| %>
+      <%= date.day %>
+      <% bookings.each do |booking| %>
+        <div class="calender-description">
+          <%= link_to booking.pet.name, booking_path(booking) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
-<% end %>
-</div>
-
-<div class="centered-content event-page" style="text-align: center;">
-  <h1>Your Event</h1>
-  <% @bookings.each do |booking| %>
-    <div>
-      <p><%= booking.pet.name %></p>
-      <p><%= booking.date_time %></p>
+  <div class="centered-content event-page" style="text-align: center;">
+    <h1>Your Event</h1>
+    <% @bookings.each do |booking| %>
+      <div>
+        <p><%= booking.pet.name %></p>
+        <p><%= booking.date_time %></p>
         <%= link_to "Delete",
           booking_path(booking),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
           class: "btn btn-danger" # Add CSS classes here
         %>
+      </div>
+    <% end %>
+
+    <!-- Icon to trigger modal -->
+    <div class="event-btn">
+      <span type="icon" data-bs-toggle="modal" data-bs-target="#addBookingModal">
+        <!-- Placeholder icon below - replace this later!-->
+        <button type="button" class="btn btn-primary">Create an event</button>
+      </span>
     </div>
-  <% end %>
 
-
-  <!-- Icon to trigger modal -->
-  <div class="event-btn">
-    <span type="icon" data-bs-toggle="modal" data-bs-target="#addBookingModal">
-    <!-- Placeholder icon below - replace this later!-->
-    <button type="button" class="btn btn-primary">Create an event</button>
-  </span>
-  </div>
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <%= render 'form', booking: @booking %>
+    <!-- Modal -->
+    <div class="modal fade" id="addBookingModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <%= render 'form', booking: @booking %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
 </div>

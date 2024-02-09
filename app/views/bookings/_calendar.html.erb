@@ -1,11 +1,12 @@
-<div class="calendar-container">
-<%= month_calendar(events:@bookings) do |date, bookings| %>
-  <%= date.day %>
-  <% bookings.each do |booking| %>
-    <div class="calender-description">
-      <%= link_to booking.description, booking_path(booking) %>
-    </div>
-  <% end %>
+<!-- This code is responsible for rendering a calendar view of bookings. It displays the dates and associated bookings for each date. -->
 
-<% end %>
+<div class="calendar-container">
+  <%= month_calendar(events: @bookings) do |date, bookings| %>
+    <%= date.day %>
+    <% bookings.each do |booking| %>
+      <div class="calender-description">
+        <%= link_to booking.description, booking_path(booking) %>
+      </div>
+    <% end %>
+  <% end %>
 </div>

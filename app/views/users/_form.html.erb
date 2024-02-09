@@ -1,9 +1,11 @@
+<!-- This code is a partial view file that renders a form for creating a new event for a user. -->
+
 <div class="form-event">
 <%= simple_form_for booking do |f| %>
   <%= f.input :date_time %>
   <%= f.input :description, data: { editor: 'markdown' }, rows: 10 %>
   <%= f.association :pet, collection: current_user.pets %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit 'Create event', class:"btn btn-primary" %>
+  <%= f.submit 'New Event', class:"btn btn-primary" %>
 <% end %>
 </div>

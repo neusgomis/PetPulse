@@ -68,7 +68,7 @@
 .event-page{
   width: 400px;
   padding: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
   margin: 0 auto;
   margin-top: 60px;
   border-radius: 6px;
@@ -98,12 +98,153 @@
   width: 100px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 .calender-description{
   max-width: 100px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/**
+ * This code defines professional styles for a simple calendar component.
+ * It includes styles for days, weekdays, today, past, future, start date,
+ * previous month, next month, current month, and days with events.
+ */
+
+.simple-calendar {
+  .day {
+    /* Add professional style for .day */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  }
+  .calender-description{
+   text-align: center;
+  }
+a{
+  text-decoration: none;
+}
+  .wday-0 {
+    /* Add professional style for .wday-0 */
+    font-weight: bold;
+    color: #ff0000;
+
+
+  }
+  .wday-1 {
+    /* Add professional style for .wday-1 */
+    font-weight: bold;
+    color: #00ff00;
+    text-decoration: none;
+
+  }
+  .wday-2 {
+    /* Add professional style for .wday-2 */
+    font-weight: bold;
+    color: #0000ff;
+    text-decoration: none;
+
+  }
+  .wday-3 {
+    /* Add professional style for .wday-3 */
+    font-weight: bold;
+    color: #ff00ff;
+
+  }
+  .wday-4 {
+    /* Add professional style for .wday-4 */
+    font-weight: bold;
+    color: #ffff00;
+  }
+  .wday-5 {
+    /* Add professional style for .wday-5 */
+    font-weight: bold;
+    color: #00ffff;
+    text-decoration: none;
+  }
+  .wday-6 {
+    /* Add professional style for .wday-6 */
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .today {
+    /* Add professional style for .today */
+    font-weight: bold;
+    color: #ff0000;
+    text-decoration: none;
+  }
+  .past {
+    /* Add professional style for .past */
+    opacity: 0.5;
+    text-decoration: none;
+  }
+  .future {
+    /* Add professional style for .future */
+    font-style: italic;
+    text-decoration: none;
+  }
+
+  .start-date {
+    /* Add professional style for .start-date */
+    font-weight: bold;
+    color: #0000ff;
+    text-decoration: none;
+  }
+
+  .prev-month {
+    /* Add professional style for .prev-month */
+    font-weight: bold;
+    color: #999;
+
+  }
+  .next-month {
+    /* Add professional style for .next-month */
+    font-weight: bold;
+    color: #999;
+    text-decoration: none;
+  }
+  .current-month {
+    /* Add professional style for .current-month */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .has-events {
+    /* Add professional style for .has-events */
+    background-color: #ffffcc;
+    border: 1px solid #cccc99;
+    padding: 8px;
+    margin-bottom: 4px;
+  }
+}
+
+.booking-pg{
+
+  width:1200px;
+  padding:30px;
+  margin: 0 auto;
+  margin-top: 55px;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin-bottom: 50px;
+}
+
+.search-evt{
+
+ margin: 0 auto;
+ margin-top: 50px;
 }
