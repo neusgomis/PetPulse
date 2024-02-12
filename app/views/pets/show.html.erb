@@ -1,53 +1,67 @@
-<h1>Pet Dashboard</h1>
+<h1><%= @pet.name %> Dashboard</h1>
 
-<%= render "pages/avatar_link" %>
-<%= render "bookings/calendar" %>
+  <!-- Render the avatar link -->
+  <%= render "pages/avatar_link" %>
 
-  <!-- Icon to trigger modal -->
-  <span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
-    <!-- Placeholder icon below - replace this later!-->
-    <i class="fas fa-plus"></i>
-  </span>
+  <!-- Render the calendar -->
+  <%= render "bookings/calendar" %>
 
-  <!-- Modal -->
-  <div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <%= render 'pets/form', pet: @pet_new %>
+  <!-- Recent Events section -->
+  <div class="recent-events">
+    <h2>Recent Events</h2>
+    <% @bookings.each do |booking| %>
+      <div>
+        <p>Date/Time: <%= booking.date_time %></p>
+        <p> <%= booking.description %></p>
       </div>
+    <% end %>
+  </div>
+
+<!-- Icon to trigger modal -->
+<span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
+  <!-- Placeholder icon below - replace this later!-->
+  <i class="fas fa-plus"></i>
+</span>
+
+<!-- Modal -->
+<div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= render 'pets/form', pet: @pet_new %>
+    </div>
+  </div>
+</div>
+
+<!-- Cards representing sections of our first added pet -->
+<div class="card-dashboard-container">
+  <div class="card-dashboard">
+    <%= link_to pet_records_path(@pet) do %>
+      <%= image_tag("records.png", alt: "Medical Records") %>
+    <% end %>
+    <div class="card-dashboard-description">
+      <h2>Medical Records</h2>
+      <p>Effortlessly access your pet's complete medical history at your fingertips, ensuring you never miss a beat in their healthcare journey.</p>
     </div>
   </div>
 
-  <!-- Cards representing sections of our first added pet -->
-  <div class="card-dashboard-container">
-    <div class="card-dashboard">
-      <%= link_to pet_records_path(@pet) do %>
-        <%= image_tag("records.png", alt: "Medical Records") %>
-      <% end %>
-      <div class="card-dashboard-description">
-        <h2>Medical Records</h2>
-        <p>View and manage your pet's medical records.</p>
-      </div>
-    </div>
-
-    <div class="card-dashboard">
-      <%= link_to pet_posts_path(@pet) do %>
-        <%= image_tag("journal.png", alt: "Pet Journal") %>
-      <% end %>
-      <div class="card-product-description">
-        <h2>Journal</h2>
-        <p>Keep track of your pet's daily activities and milestones.</p>
-      </div>
-    </div>
-
-    <div class="card-dashboard">
-      <%= image_tag("training.png", alt: "Pet Training") %>
-      <div class="card-product-description">
-        <h2>Pet Training</h2>
-        <p>Access training resources and track your pet's progress.</p>
-      </div>
+  <div class="card-dashboard">
+    <%= link_to pet_posts_path(@pet) do %>
+      <%= image_tag("journal.png", alt: "Pet Journal") %>
+    <% end %>
+    <div class="card-product-description">
+      <h2>Journal</h2>
+      <p>Create a personalized pet health journal, capturing memorable moments, observations, and notes for a comprehensive understanding of your pet's health journey</p>
     </div>
   </div>
+
+  <div class="card-dashboard">
+    <%= image_tag("training.png", alt: "Pet Training") %>
+    <div class="card-product-description">
+      <h2>Pet Training</h2>
+      <p>Access training resources and track your pet's progress.</p>
+    </div>
+  </div>
+</div>
 
 <div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
   <h1><%= @pet.name %>'s Chatroom</h1>
