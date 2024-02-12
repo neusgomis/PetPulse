@@ -32,7 +32,7 @@
     <% @bookings.each do |booking| %>
       <div>
         <p><%= booking.pet.name %></p>
-        <p><%= booking.date_time %></p>
+        <p><%= booking.time%></p>
         <%= link_to "Delete",
           booking_path(booking),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
