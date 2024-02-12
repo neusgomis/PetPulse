@@ -16,6 +16,8 @@ james_bond = User.create!(email: "johnsmith@gmail.com", password: "abcdef", firs
 
 slimd_shady= User.create!(email: "janedoe@gmail.com", password: "123456", first_name: "Jane", last_name: "Doe")
 
+first_vet = User.create!(email: "testvet@gmail.com", password: "123456",  first_name: "Test", last_name: "Vet", vet: true)
+
 
 Pet.create!(name: "Buddy", breed: "Golden Retriever", species: "Dog", weight: 70.05, age: 1, gender: "male", user: jason_bourne, vet: james_bond)
 Pet.create!(name: "Max", breed: "Labrador Retriever", species: "Dog", weight: 65.05, age: 2, gender: "male", user: jason_bourne, vet: jason_bourne)
