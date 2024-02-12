@@ -78,13 +78,13 @@
                   <!-- View Link -->
                   <%= link_to "View", pet_record_path(@pet, record) %>
                   <!-- Edit Icon -->
-                  <span type="button", data-bs-toggle="modal" data-bs-target="#editRecordModal">
+                  <span type="button", data-bs-toggle="modal" data-bs-target="#editRecordModal<%= record.id %>">
                     <i class="fas fa-edit"></i>
                   </span>
                   <!-- End of Edit Icon -->
 
                   <!--Edit Modal -->
-                  <div class="modal fade" id="editRecordModal" tabindex="-1" role="dialog" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="editRecordModal<%= record.id %>" tabindex="-1" role="dialog" aria-labelledby="editRecordModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <%= render 'records/editform', record: record %>
