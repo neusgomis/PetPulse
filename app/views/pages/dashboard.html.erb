@@ -9,8 +9,8 @@
 
   <!-- Recent Events section -->
   <div class="recent-events">
-    <h2>Recent Events</h2>
-    <% @bookings.each do |booking| %>
+    <h2>Upcoming events:</h2>
+    <% @upcoming_bookings.each do |booking| %>
       <div>
         <p>Date/Time: <%= booking.date_time %></p>
         <p> <%= booking.description %></p>
