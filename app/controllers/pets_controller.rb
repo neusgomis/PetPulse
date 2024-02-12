@@ -7,6 +7,8 @@ class PetsController < ApplicationController
     @created_pets = Pet.all
     @vets = User.where(vet: true)
     @message = Message.new
+    @bookings = current_user.bookings
+    @booking = Booking.new
   end
 
   def create

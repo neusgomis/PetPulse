@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @bookings = current_user.bookings
     @booking = Booking.new
 
-
     if params[:query].present?
       @bookings = current_user.bookings.where("name ILIKE ?","%#{params[:query]}%")
     else
