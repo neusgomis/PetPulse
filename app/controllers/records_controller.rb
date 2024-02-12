@@ -70,6 +70,6 @@ class RecordsController < ApplicationController
 
   # Permit parameters from form submission
   def allow_params
-    params.require(:record).permit(:title, :content, :pet_id)
+    params.require(:record).permit(:title, :content, :files, :images, :pet_id)
   end
 end
