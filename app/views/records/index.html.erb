@@ -1,9 +1,6 @@
 <!-- Page Title -->
 <h1>Medical Records for <%= @pet.name %></h1>
 
-<!-- TODO: Back to dashboard for specific pet -->
-<%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
-
 <!-- Icon to trigger Create New Record Modal -->
 <span type="icon" data-bs-toggle="modal" data-bs-target="#addRecordModal">
   <!-- Placeholder icon below - TODO: replace this later-->
@@ -43,7 +40,7 @@
       <div id="records">
         <% if @records.any? %>
           <% @records.each do |record| %>
-              <div class="card">
+              <div class="card my-3">
                 <!-- Card Title -->
                 <div class="card-header"><%= record.title %></div>
                 <!-- End of Card Title -->
@@ -112,5 +109,8 @@
       </div>
     </div>
   </div>
+
+  <!-- TODO: Back to dashboard for specific pet -->
+  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
 </div>
 <!-- End of Cards Container -->
