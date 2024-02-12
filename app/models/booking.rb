@@ -5,4 +5,7 @@ class Booking < ApplicationRecord
   def start_time
     return date_time
   end
+  def time
+    "#{date_time.strftime('%A, %b %d')}"
+  end
 end
