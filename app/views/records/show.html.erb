@@ -1,9 +1,62 @@
 <!-- Record Info -->
-<h3><%= @record.title %></h3>
-<hr>
-<%= @record.content %>
+<%# <h3><%= @record.title %>
+<%# </h3> %>
+<%# <hr> %>
+<%# <%= @record.content %>
 
 
 
 <!-- Link to go back to records -->
-<%= link_to 'Go Back to All Records', pet_records_path, class: "btn btn-primary" %>
+<%# <%= link_to 'Go Back to All Records', pet_records_path, class: "btn btn-primary" %>
+
+
+<div class="container">
+  <div class="card my-2 p-2">
+    <h4><%= @record.created_at.strftime("%B %d, %Y %H:%M") %></h4>
+    <h3><%= @record.title %></h3>
+
+    <%= @record.content %>
+
+    <%# iterates over the images in each record and creates a preview pic, styled by record-pic-large %>
+    <% @record.images.each do |img| %>
+      <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large' %>
+    <% end %>
+
+    <% unless @record.files.all.empty?  %>
+      <h5>Attached Files:</h5>
+      <ul>
+        <% @record.files.each do |file| %>
+          <li>
+            <%# Checks if the file is previewable and creates a download link to the file if it is %>
+            <%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
+            <% if file.previewable? %>
+              <%= link_to "#{file.filename}",  rails_blob_path(file, disposition: "attachment") %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+  <%# <!-- Edit Icon -->
+  <span type="button", data-bs-toggle="modal" data-bs-target="#editRecordModal">
+    <i class="fas fa-edit"></i>
+  </span>
+  <!-- End of Edit Icon -->
+
+  <!--Edit Modal -->
+  <div class="modal fade" id="editRecordModal" tabindex="-1" role="dialog" aria-labelledby="editRecordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render 'records/editform', record: record %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+  <!-- End of Edit Modal -->
+
+
+
+
+<%= link_to 'Back to Records', pet_records_path, class: "btn btn-primary" %>
+</div>
