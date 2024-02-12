@@ -1,7 +1,35 @@
 <!-- Record Info -->
-<h3><%= @record.title %></h3>
-<hr>
-<%= @record.content %>
+<div class="container">
+  <div class="card my-2 p-2">
+    <!-- Title and Creation Time and Date -->
+    <h4><%= @record.created_at.strftime("%B %d, %Y %H:%M") %></h4>
+    <h3><%= @record.title %></h3>
 
-<!-- Link to go back to records -->
-<%= link_to 'Go Back to All Records', pet_records_path, class: "btn btn-primary" %>
+    <!-- Medical Record Content -->
+    <%= @record.content %>
+
+    <!-- iterates over the images in each record and creates a preview pic, styled by record-pic-large -->
+    <% @record.images.each do |img| %>
+      <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img record-pic-large' %>
+    <% end %>
+
+    <!-- If Medical Record has a file, display preview and download option -->
+    <% unless @record.files.all.empty?  %>
+    <h5>Attached Files:</h5>
+    <ul>
+      <% @record.files.each do |file| %>
+      <li>
+        <!-- Checks if the file is previewable and creates a download link to the file if it is -->
+        <!-- The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet -->
+        <% if file.previewable? %>
+          <%= link_to "#{file.filename}",  rails_blob_path(file, disposition: "attachment") %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <!-- Link to go back to records -->
+    <%= link_to 'Back to Records', pet_records_path, class: "btn btn-primary" %>
+  </div>
+</div>

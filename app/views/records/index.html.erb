@@ -1,9 +1,6 @@
 <!-- Page Title -->
 <h1>Medical Records for <%= @pet.name %></h1>
 
-<!-- TODO: Back to dashboard for specific pet -->
-<%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
-
 <!-- Icon to trigger Create New Record Modal -->
 <span type="icon" data-bs-toggle="modal" data-bs-target="#addRecordModal">
   <!-- Placeholder icon below - TODO: replace this later-->
@@ -43,14 +40,43 @@
       <div id="records">
         <% if @records.any? %>
           <% @records.each do |record| %>
-              <div class="card">
+              <div class="card my-3">
                 <!-- Card Title -->
                 <div class="card-header"><%= record.title %></div>
                 <!-- End of Card Title -->
 
                 <!-- Card Body -->
                 <div class="card-body">
-                  <p><%= record.content %></p>
+                  <p>
+                    <%= record.content[0..200] %>
+                    <small>... (Click View to see whole record)</small>
+                  </p>
+                  <!-- Checks if there are no images attached to the post and iterates over the images if there are -->
+
+                  <% unless record.images.all.empty?  %>
+                    <% record.images.each do |img| %>
+                      <!-- creates html with an image tag which gets the image from AWS and displays it with the post-pic-small css  -->
+                      <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-small mb-3' %>
+                    <% end %>
+                  <% end %>
+
+                  <!-- Checks if there are no files attached to the post and iterates over the files if there are -->
+                    <% unless record.files.all.empty?  %>
+                      <h5>Attached Files:</h5>
+                      <ul>
+                        <% record.files.each do |file| %>
+                          <li>
+                            <!-- Checks if the file is previewable and creates a download link to the file if it is -->
+                            <!-- The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet -->
+                            <% if file.previewable? %>
+                              <%= link_to "#{file.filename}", rails_blob_path(file, disposition: "attachment") %>
+                            <% end %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  <!-- View Link -->
+                  <%= link_to "View", pet_record_path(@pet, record) %>
                   <!-- Edit Icon -->
                   <span type="button", data-bs-toggle="modal" data-bs-target="#editRecordModal">
                     <i class="fas fa-edit"></i>
@@ -83,5 +109,8 @@
       </div>
     </div>
   </div>
+
+  <!-- TODO: Back to dashboard for specific pet -->
+  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
 </div>
 <!-- End of Cards Container -->
