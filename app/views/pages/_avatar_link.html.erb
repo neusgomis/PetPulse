@@ -1,3 +1,5 @@
+<%# This partial template renders avatar links for each pet in the @pets collection. %>
+
 <% @pets.each do |pet| %>
   <% if pet.avatar_pic.attached? %>
     <div>
