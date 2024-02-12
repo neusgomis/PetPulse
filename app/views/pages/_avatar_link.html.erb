@@ -2,7 +2,7 @@
   <% if pet.avatar_pic.attached? %>
     <div>
       <%= link_to pet_path(pet) do %>
-        <%= image_tag pet.avatar_pic.service.send(:object_for, pet.avatar_pic.key).public_url, class: “pet-avatar rounded-circle”, crop: :fill, width: 50, height: 50 %>
+        <%= image_tag pet.avatar_pic.service.send(:object_for, pet.avatar_pic.key).public_url, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
       <% end %>
     </div>
   <% else %>
