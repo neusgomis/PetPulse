@@ -42,7 +42,10 @@
           <% @records.each do |record| %>
               <div class="card my-3">
                 <!-- Card Title -->
-                <div class="card-header"><%= record.title %></div>
+                <div class="card-header record-title">
+                  <h2><%= record.title %></h2>
+                  <h4><%= record.created_at.strftime("%B %d, %Y") %></h4>
+                </div>
                 <!-- End of Card Title -->
 
                 <!-- Card Body -->
