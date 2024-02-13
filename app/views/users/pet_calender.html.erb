@@ -13,10 +13,10 @@
   </div>
 </div>
 
-
 <div class="d-flex justify-content-center booking-pg">
 
   <div class="calendar-container">
+
     <%= month_calendar(events:@bookings) do |date, bookings| %>
       <%= date.day %>
       <% bookings.each do |booking| %>
@@ -26,21 +26,22 @@
       <% end %>
     <% end %>
   </div>
-
   <div class="centered-content event-page" style="text-align: center;">
     <h1>Your Event</h1>
+    <div class="all-event">
     <% @bookings.each do |booking| %>
       <div>
         <p><%= booking.pet.name %></p>
         <p><%= booking.time%></p>
-        <%= link_to "Delete",
+        <%= link_to "",
           booking_path(booking),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "btn btn-danger" # Add CSS classes here
+          class: "fa-regular fa-trash-can"
+
         %>
       </div>
     <% end %>
-
+    </div>
     <!-- Icon to trigger modal -->
     <div class="event-btn">
       <span type="icon" data-bs-toggle="modal" data-bs-target="#addBookingModal">
@@ -57,5 +58,7 @@
         </div>
       </div>
     </div>
+    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
   </div>
+
 </div>
