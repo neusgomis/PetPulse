@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
 # Create a pets
 jason_bourne=User.create!(email: "jasonbourne@gmail.com", password: "123456", first_name: "Jason", last_name: "Bourne")
 
