@@ -1,12 +1,3 @@
-<!-- Page Title -->
-<h1>Medical Records for <%= @pet.name %></h1>
-
-<!-- Icon to trigger Create New Record Modal -->
-<span type="icon" data-bs-toggle="modal" data-bs-target="#addRecordModal">
-  <!-- Placeholder icon below - TODO: replace this later-->
-  <i class="fas fa-plus"></i>
-</span>
-<!-- End of Icon to trigger Create New Record Modal -->
 
 <!-- Create New Record Modal -->
 <div class="modal fade" id="addRecordModal" tabindex="-1" role="dialog" aria-labelledby="addRecordModalLabel" aria-hidden="true">
@@ -19,8 +10,17 @@
 <!-- End of Create New Record Modal -->
 
 <!-- Record Cards Container -->
-<div class="card" id="card-records">
-  <div class="row justify-content-center">
+<div class="big-records-card">
+  <div class="records-title-row">
+    <!-- Page Title -->
+    <h1>Medical Records for <%= @pet.name %></h1>
+    <!-- Icon to trigger Create New Record Modal -->
+    <span type="icon" data-bs-toggle="modal" data-bs-target="#addRecordModal">
+      <i class="fas fa-plus"></i>
+    </span>
+  </div>
+<!-- End of Icon to trigger Create New Record Modal -->
+  <div class="row justify-content-center search-bar-records">
       <!-- Search Bar Row -->
       <div class="col-sm-8 my-3">
         <%= form_with url: pet_records_path, method: :get, class: "d-flex" do %>
@@ -36,7 +36,7 @@
       <!-- End of Search Bar Row -->
   </div>
   <div class="row justify-content-center">
-    <div class="col-sm-8">
+    <div class="col-auto">
       <div id="records">
         <% if @records.any? %>
           <% @records.each do |record| %>
@@ -111,6 +111,6 @@
   </div>
 
   <!-- TODO: Back to dashboard for specific pet -->
-  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>
+  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary records-btn"%>
 </div>
 <!-- End of Cards Container -->
