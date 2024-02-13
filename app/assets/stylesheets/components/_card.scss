@@ -1,5 +1,11 @@
 /* Dashboard Cards */
 
+.card-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the cards vertically */
+}
+
 .card-dashboard {
   overflow: hidden;
   height: 180px;
@@ -12,17 +18,20 @@
   margin-top: 40px;
   border-radius: 10px;
 }
+
 .card-dashboard img {
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin: 10px;
 }
+
 .card-dashboard h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
+
 .card-dashboard p {
   font-size: 12px;
   line-height: 1.4;
@@ -31,22 +40,44 @@
   margin-top: 8px;
   margin-right: 8px;
 }
+
 .card-dashboard .card-dashboard-description {
   padding: 16px;
 }
-.card-dashboard-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the cards vertically */
-}
+
 .upcoming-events-card {
   display: flex;
-  flex-direction: column; /* Set to column for vertical alignment */
-  justify-content: flex-end;
-  margin-right: 20px;
+  flex-direction: column;
+  margin-right: 40px;
   transform: scale(0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px;
 }
+
 .event-cards-container {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.event-card {
+  width: 120px;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px;
+  max-width: 100px;
+}
+
+/* End of Dashboard Cards/
+
+/* Home Page Cards */
+.cards {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap; /* Enable wrapping for multiple event cards */
   gap: 10px; /* Adjust as needed for spacing between event cards */

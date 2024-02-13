@@ -26,7 +26,7 @@
       <div class="card-dashboard">
         <% if @pet %>
           <%= link_to pet_records_path(@pet) do %>
-            <%= image_tag("records.png", alt: "Medical Records") %>
+            <%= image_tag("records_card.png", alt: "Medical Records") %>
           <% end %>
         <% end %>
         <div class="card-dashboard-description">
@@ -41,28 +41,28 @@
             <%= image_tag("journal.png", alt: "Pet Journal") %>
           <% end %>
         <% end %>
-        <div class="card-product-description">
+        <div class="card-dashboard-description">
           <h2>Journal</h2>
           <p>Create a personalized pet health journal, capturing memorable moments, observations, and notes for a comprehensive understanding of your pet's health journey</p>
         </div>
       </div>
     </div>
 
-    <div class="dashboard-calendar col-12">
+    <div class="dashboard-calendar">
       <!-- Render the calendar -->
       <%= render "bookings/calendar" %>
     </div>
 
     <!-- Upcoming Events section -->
     <div class="upcoming-events-card">
-      <h2>Upcoming events:</h2>
-      <div class="event-card">
-        <% @upcoming_bookings&.each do |booking| %>
-          <div>
-            <p><%= booking.time %></p>
-            <p><%= booking.description %></p>
-          </div>
-        <% end %>
+    <h2>Upcoming events:</h2>
+        <div class="event-cards-container">
+          <% @upcoming_bookings&.each do |booking| %>
+            <div class="event-card">
+              <p><%= booking.time %></p>
+              <p><%= booking.description %></p>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
