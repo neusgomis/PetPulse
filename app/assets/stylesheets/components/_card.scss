@@ -53,16 +53,18 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
+  background-color: white;
 }
 
-.event-cards-container {
+.dashboard-event-cards-container {
   display: flex;
   gap: 10px;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 400px;
 }
 
-.event-card {
-  width: 120px;
+.dashboard-event-card {
   background: white;
   display: flex;
   flex-direction: row;
@@ -70,7 +72,8 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
-  max-width: 100px;
+  width: inherit;
+
 }
 
 /* End of Dashboard Cards/
@@ -82,15 +85,6 @@
   flex-wrap: wrap; /* Enable wrapping for multiple event cards */
   gap: 10px; /* Adjust as needed for spacing between event cards */
 }
-.event-card {
-  width: 120px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* End of Dashboard Cards */
-
 
 .event-page {
   width: 400px;

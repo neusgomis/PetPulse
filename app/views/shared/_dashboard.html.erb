@@ -43,7 +43,7 @@
         <% end %>
         <div class="card-dashboard-description">
           <h2>Journal</h2>
-          <p>Create a personalized pet health journal, capturing memorable moments, observations, and notes for a comprehensive understanding of your pet's health journey</p>
+          <p>Create a personalized pet health journal, capturing memorable moments, observations, and notes for a comprehensive understanding of your pet's health journey.</p>
         </div>
       </div>
     </div>
@@ -56,11 +56,11 @@
     <!-- Upcoming Events section -->
     <div class="upcoming-events-card">
     <h2>Upcoming events:</h2>
-        <div class="event-cards-container">
+        <div class="dashboard-event-cards-container">
           <% @upcoming_bookings&.each do |booking| %>
-            <div class="event-card">
-              <p><%= booking.time %></p>
-              <p><%= booking.description %></p>
+            <div class="dashboard-event-card">
+              <div class="upcoming-event-time"><p><%= booking.time %></p></div>
+              <div class="upcoming-event-description"><p><%= booking.description %></p></div>
             </div>
           <% end %>
       </div>
