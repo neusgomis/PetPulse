@@ -3,7 +3,7 @@
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
+  // transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
   }
@@ -18,4 +18,16 @@
   &:hover {
     transform: scale(1.05);
   }
+}
+
+.post-card-container {
+  height: 70vh;
+  overflow: scroll;
+}
+
+
+
+.post-card-bottom-text {
+  position: absolute;
+  bottom: 0;
 }
