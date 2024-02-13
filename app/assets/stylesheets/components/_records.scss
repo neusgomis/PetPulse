@@ -34,3 +34,22 @@
   width: 100%;
   margin-bottom: 10px;
 }
+
+.record-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+
+.medical-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  .btn {
+    margin-right: 5px;
+  }
+}
