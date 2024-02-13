@@ -249,6 +249,7 @@
   border-radius: 6px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   margin-bottom: 50px;
+  background-color: color;
 }
 
 .search-evt {
@@ -290,10 +291,22 @@
 }
 
 .home-pg-img {
-  max-height: 400px;
+  max-height:300px;
   object-fit: cover;
+  object-position: center;
+
 }
 
-.container{
+.homepage-card-service{
   margin-bottom: 100px;
+}
+
+
+.review-homepage{
+  background-color: white;
+  border: 1px solid wheat !important;;
+  overflow: hidden;
+  .card-footer{
+    background-color: white;
+  }
 }
