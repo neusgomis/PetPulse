@@ -1,0 +1,36 @@
+.big-records-card {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  max-height: 500px;
+  overflow: scroll;
+  align-items: center;
+}
+
+#records {
+  max-height: 300px;
+  overflow: scroll;
+  margin-bottom: 5px;
+}
+
+.records-btn a {
+  width: fit-content;
+  margin-top: 5px;
+}
+
+.search-bar-records {
+  width: 100%;
+}
+
+.records-title-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
