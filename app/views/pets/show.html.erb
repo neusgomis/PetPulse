@@ -6,7 +6,7 @@
   <%= render "shared/dashboard" %>
 
 <!-- Button to Open Chat Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal" data-controller="notification" data-notification-target="notification-icon">Chat with your Vet</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal" data-controller="notification" data-notification-target="notificationIcon" data-notification-user-id-value="<%= current_user.id %>">Chat with your Vet</button>
 
 <!-- Chat Modal connected to chatroom subscription stimulus controller -->
 <div class="modal fade" role="dialog" id="chatModal" tabindex="-1" aria-labelledby="chattModalLabel" aria-hidden="true">
@@ -30,6 +30,7 @@
           <% end %>
       </div>
       <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
