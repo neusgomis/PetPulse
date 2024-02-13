@@ -56,9 +56,9 @@
     <!-- Upcoming Events section -->
     <div class="upcoming-events-card">
       <h2>Upcoming events:</h2>
-      <div class="event-card">
+      <div class="event-cards-container">
         <% @upcoming_bookings&.each do |booking| %>
-          <div>
+          <div class="event-card">
             <p><%= booking.time %></p>
             <p><%= booking.description %></p>
           </div>
