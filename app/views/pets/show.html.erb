@@ -1,27 +1,38 @@
-<script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+<!-- <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script> -->
 
 <h1><%= @pet.name %> Dashboard</h1>
 
   <!-- Render the shared dashboard partial -->
   <%= render "shared/dashboard" %>
 
-<div class="container chatroom"  data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
-  <h1><%= @pet.name %>'s Chatroom</h1>
-<button data-action="click->chatroom-subscription#fire" class="btn btn-outline-primary">Chat to your vet</button>
+<!-- Button to Open Chat Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal" data-controller="notification" data-notification-target="notification-icon">Chat with your Vet</button>
 
-<div class="container chatroom mt-5" data-controller="chatroom-subscription" data-chatroom-subscription-target="chat" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
-    <h1><%= @pet.name %>'s Chatroom</h1>
-
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @pet.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
+<!-- Chat Modal connected to chatroom subscription stimulus controller -->
+<div class="modal fade" role="dialog" id="chatModal" tabindex="-1" aria-labelledby="chattModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @pet.name %>'s Chatroom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" data-controller="chatroom-subscription" data-chatroom-subscription-chatpet-id-value="<%= @pet.id %>">
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @pet.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+          <%= simple_form_for [@pet, @message], html: { class: "d-flex flex-grow-1" } do |f| %>
+            <%= f.input :content, label: false, placeholder: "Type your message here..." %>
+            <%= f.submit "Send", class: "btn btn-primary" %>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
     </div>
-
-    <%= simple_form_for [@pet, @message], html: {class: "d-flex"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@pet.name}", wrapper_html: {class: "flex-grow-1"} %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-    <% end %>
+  </div>
 </div>
 
 <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary" %>

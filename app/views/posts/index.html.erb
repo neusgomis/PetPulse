@@ -43,6 +43,24 @@
         <%= link_to edit_pet_post_path(@pet, post) do %>
           <i class="fa-regular fa-pen-to-square"></i>
         <% end %>
+
+      <!-- Edit Icon -->
+
+      <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
+        <i class="fas fa-edit"></i>
+      </span>
+      <!-- End of Edit Icon -->
+
+      <!--Edit Modal -->
+      <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <%= render 'posts/editform', post: post, pet: @pet  %>
+          </div>
+        </div>
+      </div>
+      <!-- End of Edit Modal -->
+
         <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
           <i class="fa-regular fa-trash-can"></i>
         <% end %>
