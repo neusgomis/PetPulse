@@ -26,6 +26,9 @@ class PostsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     @post = Post.new(post_params)
     @post.pet = @pet
+    if params[:post][:images].present?
+      @post.images.attach(params[:post][:images])
+    end
     @post.save
     redirect_to pet_posts_path
   end
@@ -40,7 +43,10 @@ class PostsController < ApplicationController
   def update
     # Get the pet record by id
     @post = Post.find(params[:id])
-    # If the record is updated with the form params we allowed with private method
+
+    if params[:post][:images].present?
+      @post.images.attach(params[:post][:images])
+    end
     if @post.update(post_params)
       # Redirect to the pet records index page
       redirect_to pet_posts_path, notice: "Successfully updated record."
@@ -60,6 +66,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :pet_id, :images, :videos, :files)
+    params.require(:post).permit(:title, :content, :pet_id, files: [])
   end
 end
