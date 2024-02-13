@@ -1,40 +1,49 @@
-<div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path('banner.gif') %>')">
-  <div class="container-hm-pg">
+<div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path('banner.png') %>')">
     <h1>Your Pet's Health, One Heartbeat Away</h1>
     <p>Your Pet's Well-being, Pulse by Pulse, with PetPulse.</p>
+    <%= link_to "Dashboard", dashboard_path, class: "btn btn-primary" %>
+</div>
+
+<div class="heading-card-hp">
+  <h1>What we offer:</h1>
+</div>
+
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5 my-5">
+  <div class="col">
+    <div class="card h-100 full-card-hp">
+
+      <%= image_tag "1.png", alt: "Le Wagon", class: "card-img-top home-pg-img" %>
+      <div class="card-body">
+      <h5 class="card-title">Health Hub</h5>
+        <p class="card-text">Your pet's health hub! One secure spot for all records, keeping their well-being in check.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 full-card-hp">
+      <%= image_tag "2.png", alt: "Le Wagon", class: "card-img-top home-pg-img" %>
+      <div class="card-body">
+        <h5 class="card-title">Vet Chat</h5>
+        <p class="card-text">Instant vet chat for pet advice: peace of mind, timely support.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 full-card-hp">
+      <%= image_tag "3.png", alt: "Le Wagon", class: "card-img-top home-pg-img" %>
+      <div class="card-body">
+        <h5 class="card-title">Pet Journal</h5>
+        <p class="card-text">Capture pet moments, track health trends, and treasure memories!</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="landing-content">
-  <h1>What we offer:</h1>
-  <h2>Comprehensive Health Records:</h2>
-
-  "PetPulse transforms scattered medical records into a centralized hub, offering you a comprehensive overview of your pet's health journey. From vaccination history to treatment details, access everything you need in one secure place. Effortlessly stay in tune with your pet's well-being, ensuring no aspect of their health goes unnoticed."
-
-  <h2>Vet-Approved Chat:</h2>
-
-  "Connect instantly with qualified veterinarians through PetPulse's in-app chat feature. Whether you have questions about symptoms, need advice on nutrition, or seek guidance on general pet care, our vet-approved chat provides a direct line to professional insights. Your pet's health is just a message away, ensuring you have peace of mind and timely support whenever you need it."
-
-  <h2>Personalized Pet Health Journal:</h2>
-
-  "Capture the heartwarming moments and health nuances of your pet's life with PetPulse's Personalized Pet Health Journal. Document milestones, track behavioral changes, and jot down notes to create a rich narrative of your pet's well-being. This interactive journal not only serves as a treasure trove of memories but also aids in proactive healthcare, allowing you to spot patterns and trends for a more informed approach to pet care."
 </div>
 
 
-<div class="cards">
-  <!-- PetPal Card - directs to PetPal Website -->
-  <%= link_to "https://airbnb-mai-wandk-ad13d1bba021.herokuapp.com/" do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1494947665470-20322015e3a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-            PetPal
-    </div>
-  <% end %>
-  <!-- End of PetPal Card>
-
-  <!-- HealthHub Card - directs to Dashboard -->
-  <%= link_to dashboard_path do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-      HealthHub
-    </div>
-  <% end %>
   <!-- End of HealthHub Card -->
 </div>

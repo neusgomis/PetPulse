@@ -1,4 +1,5 @@
 /* Dashboard Cards */
+
 .card-dashboard {
   overflow: hidden;
   height: 180px;
@@ -11,20 +12,17 @@
   margin-top: 40px;
   border-radius: 10px;
 }
-
 .card-dashboard img {
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin: 10px;
 }
-
 .card-dashboard h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-
 .card-dashboard p {
   font-size: 12px;
   line-height: 1.4;
@@ -33,77 +31,69 @@
   margin-top: 8px;
   margin-right: 8px;
 }
-
 .card-dashboard .card-dashboard-description {
   padding: 16px;
 }
-
 .card-dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the cards vertically */
 }
-
 .upcoming-events-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Set to column for vertical alignment */
   justify-content: flex-end;
   margin-right: 20px;
   transform: scale(0.9);
-  // align-self: flex-start;
 }
-
-
-/* Home Page Cards */
-.cards {
-  margin-top: 10px;
+.event-cards-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap; /* Enable wrapping for multiple event cards */
+  gap: 10px; /* Adjust as needed for spacing between event cards */
 }
-
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  width: 300px;
-  margin-right: 30px;
+.event-card {
+  width: 120px;
+  background: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+/* End of Dashboard Cards */
 
-.event-page{
+
+.event-page {
   width: 400px;
   padding: 30px;
-
   margin: 0 auto;
   margin-top: 60px;
   border-radius: 6px;
-
 }
 
-.event-btn{
-  margin-top: 15px;
-
+.event-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.form-event{
+.form-event {
   width: 100%;
   padding: 5px;
   margin: 0 auto;
 }
 
-.calendar-container{
+.calendar-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+
+  .calendar-heading nav {
+    padding: 8px;
+
+    a {
+      padding: 5px;
+      @extend .btn.btn-primary;
+    }
+  }
 }
 
 .simple-calendar .day {
@@ -115,7 +105,7 @@
   text-decoration: none;
 }
 
-.calender-description{
+.calender-description {
   max-width: 100px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -140,52 +130,55 @@
     padding: 8px;
     margin-bottom: 4px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
 
+  .calender-description {
+    text-align: center;
   }
-  .calender-description{
-   text-align: center;
+
+  a {
+    text-decoration: none;
   }
-a{
-  text-decoration: none;
-}
+
   .wday-0 {
     /* Add professional style for .wday-0 */
     font-weight: bold;
     color: #ff0000;
-
-
   }
+
   .wday-1 {
     /* Add professional style for .wday-1 */
     font-weight: bold;
     color: #00ff00;
     text-decoration: none;
-
   }
+
   .wday-2 {
     /* Add professional style for .wday-2 */
     font-weight: bold;
     color: #0000ff;
     text-decoration: none;
-
   }
+
   .wday-3 {
     /* Add professional style for .wday-3 */
     font-weight: bold;
     color: #ff00ff;
-
   }
+
   .wday-4 {
     /* Add professional style for .wday-4 */
     font-weight: bold;
     color: #ffff00;
   }
+
   .wday-5 {
     /* Add professional style for .wday-5 */
     font-weight: bold;
     color: #00ffff;
     text-decoration: none;
   }
+
   .wday-6 {
     /* Add professional style for .wday-6 */
     font-weight: bold;
@@ -199,11 +192,13 @@ a{
     color: #ff0000;
     text-decoration: none;
   }
+
   .past {
     /* Add professional style for .past */
     opacity: 0.5;
     text-decoration: none;
   }
+
   .future {
     /* Add professional style for .future */
     font-style: italic;
@@ -221,14 +216,15 @@ a{
     /* Add professional style for .prev-month */
     font-weight: bold;
     color: #999;
-
   }
+
   .next-month {
     /* Add professional style for .next-month */
     font-weight: bold;
     color: #999;
     text-decoration: none;
   }
+
   .current-month {
     /* Add professional style for .current-month */
     font-weight: bold;
@@ -245,10 +241,9 @@ a{
   }
 }
 
-.booking-pg{
-
-  width:1200px;
-  padding:30px;
+.booking-pg {
+  width: 1200px;
+  padding: 30px;
   margin: 0 auto;
   margin-top: 55px;
   border-radius: 6px;
@@ -256,18 +251,49 @@ a{
   margin-bottom: 50px;
 }
 
-.search-evt{
-
- margin: 0 auto;
- margin-top: 50px;
+.search-evt {
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
-.event-card {
-  display: inline-block;
-  overflow: hidden;
-  width: 120px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.all-event {
+  height: 300px;
+  overflow: auto;
+}
+
+.pet-name {
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.full-card-hp {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.heading-card-hp {
+  margin-top: 30px;
+
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.home-pg-img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.container{
+  margin-bottom: 100px;
 }
