@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     @posts = Post.all
     @pet = Pet.find(params[:pet_id])
     @post = Post.new
+
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR content ILIKE :query"
+      @posts = @posts.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
