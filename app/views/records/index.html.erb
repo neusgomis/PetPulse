@@ -14,10 +14,6 @@
   <div class="records-title-row">
     <!-- Page Title -->
     <h1>Medical Records for <%= @pet.name %></h1>
-    <!-- Icon to trigger Create New Record Modal -->
-    <span type="icon" data-bs-toggle="modal" data-bs-target="#addRecordModal">
-      <i class="fas fa-plus"></i>
-    </span>
   </div>
 <!-- End of Icon to trigger Create New Record Modal -->
   <div class="row justify-content-center search-bar-records">
@@ -43,8 +39,8 @@
               <div class="card my-3">
                 <!-- Card Title -->
                 <div class="card-header record-title">
-                  <h2><%= record.title %></h2>
-                  <h4><%= record.created_at.strftime("%B %d, %Y") %></h4>
+                  <h3><%= record.title %></h3>
+                  <p><%= record.created_at.strftime("%A, %b %d") %></p>
                 </div>
                 <!-- End of Card Title -->
 
@@ -113,7 +109,14 @@
     </div>
   </div>
 
-  <!-- TODO: Back to dashboard for specific pet -->
-  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary records-btn"%>
+  <!-- Buttons Section -->
+  <div class="medical-buttons">
+    <!-- Button to Create New Record Modal -->
+    <button type="button" data-bs-toggle="modal" data-bs-target="#addRecordModal" class="btn btn-primary records-btn">
+        Create a new Record
+    </button>
+    <!-- Button to Back to Dashboard -->
+    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary records-btn"%>
+  </div>
 </div>
 <!-- End of Cards Container -->
