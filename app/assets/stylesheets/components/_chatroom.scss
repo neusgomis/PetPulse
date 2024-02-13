@@ -30,6 +30,11 @@
   }
 }
 
-.hidden {
-  display: none;
+#chatModal {
+    width: 500px;
+    max-height: 300px;
+}
+
+#chatModal .modal-dialog {
+    width: 100%;
 }

@@ -10,12 +10,17 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.pet = @pet
     @message.user = current_user
+    other_user = @chatpet.user.distinct.where.not(id: current_user.id)[0]
     if @message.save
       ChatpetChannel.broadcast_to(
         @pet,
         render_to_string(partial: "message", locals: {message: @message})
       )
       head :ok
+      NotificationChannel.broadcast_to(
+        other_user,
+        1
+      )
     else
       render "pets/show", status: :unprocessable_entity
     end
