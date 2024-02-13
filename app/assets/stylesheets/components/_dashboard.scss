@@ -1,0 +1,10 @@
+.main-dashboard-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-calendar,
+.card-dashboard-container {
+  width: 48%;
+  box-sizing: border-box;
+}

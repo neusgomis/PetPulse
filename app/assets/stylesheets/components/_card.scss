@@ -1,17 +1,22 @@
+/* Dashboard Cards */
 .card-dashboard {
-  display: inline-block;
   overflow: hidden;
-  width: 120px;
+  height: 180px;
   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
 }
 
 .card-dashboard img {
-  width: 100%;
+  width: 100px;
   height: 100px;
   object-fit: cover;
+  margin: 10px;
 }
 
 .card-dashboard h2 {
@@ -26,6 +31,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  margin-right: 8px;
 }
 
 .card-dashboard .card-dashboard-description {
@@ -34,12 +40,19 @@
 
 .card-dashboard-container {
   display: flex;
-  justify-content: center; /* Center the cards horizontally */
+  flex-direction: column;
   align-items: center; /* Center the cards vertically */
-  margin-top: 16px;
-  width: 33%;
-
 }
+
+.upcoming-events-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 20px;
+  transform: scale(0.9);
+  // align-self: flex-start;
+}
+
 
 /* Home Page Cards */
 .cards {
@@ -247,4 +260,14 @@ a{
 
  margin: 0 auto;
  margin-top: 50px;
+}
+
+.event-card {
+  display: inline-block;
+  overflow: hidden;
+  width: 120px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
