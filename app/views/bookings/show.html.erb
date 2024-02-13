@@ -1,18 +1,21 @@
 <div class="d-flex justify-content-center booking-pg">
 
 
-<div styl">
+
+<div class="d-flex container">
+<div>
+<div class= "pet-name">
   <h1><%= @pet.name %></h1>
 </div>
-<div class="d-flex container">
-
   <%= render 'calendar', pet: @pet, booking: @booking %>
-
+</div>
   <div class="centered-content event-page" style="text-align: center;">
     <h1>Description</h1>
     <div>
       <p><%= @booking.description %></p>
+
     </div>
+    <%= link_to "Back to Calendar",  pet_calender_users_path, class: 'btn btn-primary' %>
 
     <!-- Icon to trigger modal -->
     <!-- Modal -->

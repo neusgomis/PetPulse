@@ -10,8 +10,8 @@
   <div class="modal-body">
     <%= f.input :title %>
     <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
-    <%= f.input :images, as: :file, accept: 'image/png, image/gif, image/jpeg', multiple:true, class: "form-control" %>
-    <%= f.input :files, as: :file, accept: 'file/pdf', multiple:true, class: "form-control" %>
+    <%= f.input :images, as: :file, accept: 'image/png, image/gif, image/jpeg', input_html: {multiple: true}, class: "form-control" %>
+    <%= f.input :files, as: :file, accept: 'file/pdf', input_html: {multiple: true}, class: "form-control" %>
   </div>
   <div class="modal-footer">
     <%= f.button :submit, 'Add Post', class: 'btn btn-primary' %>

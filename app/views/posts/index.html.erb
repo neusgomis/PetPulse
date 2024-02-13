@@ -1,73 +1,96 @@
 <div class="container">
-<h1>Journal</h1>
-  <% @posts.each do |post| %>
+  <h1>Journal</h1>
 
-    <div class="card my-2 p-2">
-      <h4><%= post.created_at.strftime("%B %d, %Y %H:%M") %></h4>
-<%#  Display Post Title%>
-      <h2>
-        <%= post.title %>
-      </h2>
-<%# Display someof the Post Content %>
-      <p>
-        <%= post.content[0..200] %>
-        <small>...(Click View to see whole post)</small>
-      </p>
-
-<%# Checks if there are no images attached to the post and iterates over the images if there are %>
-
-      <% unless post.images.all.empty?  %>
-        <% post.images.each do |img| %>
-<%# creates html with an image tag which gets the image from AWS and displays it with the post-pic-small css  %>
-          <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-small mb-3' %>
-        <% end %>
-      <% end %>
-
-<%# Checks if there are no files attached to the post and iterates over the files if there are %>
-      <% unless post.files.all.empty?  %>
-      <h5>Attached Files:</h5>
-      <ul>
-        <% post.files.each do |file| %>
-        <li>
-<%# Checks if the file is previewable and creates a download link to the file if it is %>
-<%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
-          <% if file.previewable? %>
-            <%= link_to "#{file.filename}", rails_blob_path(file, disposition: "attachment") %>
+    <div class="row justify-content-center">
+        <!-- Search Bar Row -->
+        <div class="col-sm-8 my-3">
+          <%= form_with url: pet_posts_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Type a keyword"
+              %>
+            <!-- Form Submit Button -->
+            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           <% end %>
-        </li>
-        <% end %>
-      </ul>
-      <% end %>
-      <div>
-        <%= link_to "View", pet_post_path(@pet, post) %>
-        <%= link_to edit_pet_post_path(@pet, post) do %>
-          <i class="fa-regular fa-pen-to-square"></i>
-        <% end %>
-
-      <!-- Edit Icon -->
-
-      <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
-        <i class="fas fa-edit"></i>
-      </span>
-      <!-- End of Edit Icon -->
-
-      <!--Edit Modal -->
-      <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <%= render 'posts/editform', post: post, pet: @pet  %>
-          </div>
         </div>
-      </div>
-      <!-- End of Edit Modal -->
-
-        <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-          <i class="fa-regular fa-trash-can"></i>
-        <% end %>
-      </div>
+        <!-- End of Search Bar Row -->
     </div>
-  <% end %>
 
+</div>
+
+  <div class="container">
+    <div class="row ">
+      <% @posts.each do |post| %>
+
+        <div class="col-sm-4">
+          <div class="card p-2 m-1 ">
+            <h4><%= post.created_at.strftime("%B %d, %Y") %></h4>
+            <%#  Display Post Title%>
+            <h2>
+              <%= post.title %>
+            </h2>
+            <%# Display someof the Post Content %>
+            <p>
+              <%= post.content[0..200] %>
+              <small>...</small>
+            </p>
+
+            <%# Checks if there are no images attached to the post and iterates over the images if there are %>
+            <% unless post.images.all.empty?  %>
+              <% post.images.each do |img| %>
+                <%# creates html with an image tag which gets the image from AWS and displays it with the post-pic-small css  %>
+                <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-small mb-3' %>
+              <% end %>
+            <% end %>
+
+            <%# Checks if there are no files attached to the post and iterates over the files if there are %>
+            <% unless post.files.all.empty?  %>
+              <h5>Attached Files:</h5>
+              <ul>
+                <% post.files.each do |file| %>
+                  <li>
+                    <%# Checks if the file is previewable and creates a download link to the file if it is %>
+                    <%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
+                    <% if file.previewable? %>
+                      <%= link_to "#{file.filename}", rails_blob_path(file, disposition: "attachment") %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+
+            <!-- Edit Icon -->
+            <div>
+              <%= link_to "View", pet_post_path(@pet, post) %>
+
+              <!-- Edit Icon -->
+              <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
+                <i class="fas fa-edit"></i>
+              </span>
+              <!-- End of Edit Icon -->
+
+              <!--Edit Modal -->
+              <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <%= render 'posts/editform', post: post, pet: @pet  %>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Edit Modal -->
+
+              <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                <i class="fa-regular fa-trash-can"></i>
+              <% end %>
+            </div>
+          </div>
+    </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
   <!-- Icon to trigger Create New Record Modal -->
 <button  data-bs-toggle="modal" data-bs-target="#addPostModal" class="btn btn-primary">
   <!-- Placeholder icon below - TODO: replace this later-->
