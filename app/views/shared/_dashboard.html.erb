@@ -1,0 +1,69 @@
+<!-- This is the main dashboard view -->
+<div class="dashboard-body">
+
+  <!-- Render the avatar link -->
+  <div class="avatar-section">
+    <%= render "pages/avatar_link" %>
+    <!-- Icon to trigger modal -->
+    <span type="icon" data-bs-toggle="modal" data-bs-target="#addPetModal">
+      <!-- Placeholder icon below - replace this later!-->
+      <i class="fas fa-plus"></i>
+    </span>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addPetModal" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render 'pets/form', pet: @pet_new %>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-dashboard-section">
+    <!-- Cards representing different sections of the pet dashboard -->
+    <div class="card-dashboard-container">
+      <div class="card-dashboard">
+        <% if @pet %>
+          <%= link_to pet_records_path(@pet) do %>
+            <%= image_tag("records.png", alt: "Medical Records") %>
+          <% end %>
+        <% end %>
+        <div class="card-dashboard-description">
+          <h2>Medical Records</h2>
+          <p>Effortlessly access your pet's complete medical history at your fingertips, ensuring you never miss a beat in their healthcare journey.</p>
+        </div>
+      </div>
+
+      <div class="card-dashboard">
+        <% if @pet %>
+          <%= link_to pet_posts_path(@pet) do %>
+            <%= image_tag("journal.png", alt: "Pet Journal") %>
+          <% end %>
+        <% end %>
+        <div class="card-product-description">
+          <h2>Journal</h2>
+          <p>Create a personalized pet health journal, capturing memorable moments, observations, and notes for a comprehensive understanding of your pet's health journey</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-calendar col-12">
+      <!-- Render the calendar -->
+      <%= render "bookings/calendar" %>
+    </div>
+
+    <!-- Upcoming Events section -->
+    <div class="upcoming-events-card">
+      <h2>Upcoming events:</h2>
+      <div class="event-card">
+        <% @upcoming_bookings&.each do |booking| %>
+          <div>
+            <p><%= booking.time %></p>
+            <p><%= booking.description %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

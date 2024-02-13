@@ -9,4 +9,8 @@ class PagesController < ApplicationController
     @booking = Booking.new
     @upcoming_bookings = Booking.where("user_id = ? AND date_time >= ?", current_user.id, Date.today).order(:date_time).limit(6)
   end
+
+  def time(date_time)
+    "#{date_time.strftime('%A, %b %d')}"
+  end
 end

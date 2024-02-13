@@ -5,13 +5,10 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static values = { chatpetId: Number }
-  static targets = ["messages", "chat"]
+  static targets = ["messages"]
   connect() {
-
+    console.log("Hello");
     console.log(this.chatpetIdValue);
-
-    // Hide Chat Initially
-    this.chatTarget.classList.add("hidden");
 
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatpetChannel", id: this.chatpetIdValue },
@@ -21,9 +18,4 @@ export default class extends Controller {
     console.log(`Subscribed to the chatpet with the id ${this.chatpetIdValue}.`)
     console.log(this.chatTarget)
 }
-
-  fire(){
-    console.log("Hello from the button");
-    this.chatTarget.classList.toggle("hidden");
-  }
 }
