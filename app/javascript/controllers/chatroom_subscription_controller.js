@@ -13,9 +13,18 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatpetChannel", id: this.chatpetIdValue },
 
-        { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data) }
+        { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribed to the chatpet with the id ${this.chatpetIdValue}.`)
     console.log(this.chatTarget)
-}
+  }
+
+  resetForm(event) {
+    event.target.reset()
+  }
+
+  #insertMessageAndScrollDown(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
 }

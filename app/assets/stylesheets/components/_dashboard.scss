@@ -14,3 +14,23 @@
   margin-bottom: 20px;
   margin-top: 40px;
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.chat-img {
+  margin-right: 50px;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.notification-icon{
+  position: absolute;
+    top: 16px;
+    right: 60px;
+}
