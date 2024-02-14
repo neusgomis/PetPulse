@@ -9,7 +9,7 @@
     <%= f.input :name %>
     <%= f.input :species %>
     <%= f.input :breed %>
-    <%= f.input :weight %>
+    <%= f.input :weight, label: 'Weight (kg)' %>
     <%= f.input :age %>
     <%= f.input :avatar_pic, as: :file %>
     <%= f.association :vet, collection:@vets.map { |v| [v.first_name, v.id ] }, as: :select %>

@@ -6,7 +6,7 @@ class PetsController < ApplicationController
     @created_pets = Pet.all
     @vets = User.where(vet: true)
     @message = Message.new
-    @bookings = current_user.bookings
+    @bookings = @pet.bookings
     @booking = Booking.new
     @upcoming_bookings = Booking.where("user_id = ? AND date_time >= ?", current_user.id, Date.today).order(:date_time).limit(6)
   end

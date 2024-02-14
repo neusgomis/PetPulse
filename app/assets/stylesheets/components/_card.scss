@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the cards vertically */
+  margin-top: 40px;
 }
 
 .card-dashboard {
@@ -14,14 +15,31 @@
   display: flex;
   align-items: center;
   margin-left: 40px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  margin-bottom: 8px;
+  // margin-top: 20px;
   border-radius: 10px;
+  width: 700px;
+
+  .records-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 24px;
+    margin-left: 14px;
+  }
+
+  .posts-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 38px;
+    margin-left: 18px;
+  }
 }
 
 .card-dashboard img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   margin: 10px;
 }
@@ -39,21 +57,47 @@
   margin-bottom: 0;
   margin-top: 8px;
   margin-right: 8px;
+  text-decoration: none;
 }
 
 .card-dashboard .card-dashboard-description {
-  padding: 16px;
+  padding: 8px;
+}
+
+.card-dashboard a {
+  text-decoration: none; /* Remove underline from links */
 }
 
 .upcoming-events-card {
   display: flex;
   flex-direction: column;
+  margin-top: 17px;
   margin-right: 40px;
   transform: scale(0.9);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
   background-color: white;
+  max-height: 463px;
+}
+
+.upcoming-events-card h2 {
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.upcoming-event-time {
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.upcoming-event-description {
+  margin-left: 8px;
+  margin-top: 2px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 .dashboard-event-cards-container {
@@ -62,18 +106,21 @@
   flex-direction: column;
   box-sizing: border-box;
   width: 400px;
+  overflow-y: auto;
+  max-height: 463px;
+  width: 474px;
 }
 
 .dashboard-event-card {
   background: white;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
-  width: inherit;
-
+  margin: 10px;
+  width: 400px;
 }
 
 /* End of Dashboard Cards/
