@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   end
    resources :bookings, only: [:destroy, :show, :create]
   get '/dashboard', to: 'pages#dashboard'
+  get '/about', to: 'abouts#about'
+  get '/faq', to: 'faqs#faq'
+  get '/contact', to: 'contacts#contact'
 end
