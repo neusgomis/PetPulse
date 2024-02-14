@@ -1,5 +1,5 @@
 .big-records-card {
-  width: 900px;
+  width: 1400px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -7,13 +7,19 @@
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  max-height: 500px;
+  max-height: 700px;
   overflow: hidden;
   align-items: center;
 }
 
+.all-records {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #records {
-  max-height: 300px;
+  width: 90%;
+  max-height: 450px;
   overflow-y: scroll;
   margin-bottom: 5px;
 }
