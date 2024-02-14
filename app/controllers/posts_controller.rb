@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
     # @pet = Pet.find(params[:pet_id])
-    @posts = Post.all
     @pet = Pet.find(params[:pet_id])
+    @posts = @pet.posts
     @post = Post.new
 
     if params[:query].present?
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   def show
     @pet = Pet.find(params[:pet_id])
     @post = Post.find(params[:id])
-
   end
 
   def new
@@ -43,7 +42,6 @@ class PostsController < ApplicationController
   def update
     # Get the pet record by id
     @post = Post.find(params[:id])
-
     if params[:post][:images].present?
       @post.images.attach(params[:post][:images])
     end
