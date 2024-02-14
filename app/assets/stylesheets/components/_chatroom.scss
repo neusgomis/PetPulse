@@ -1,40 +1,38 @@
-
-.chatroom {
-  background: white;
-  margin-top: 9px;
-  height: calc(100vh - 75px);
+#chatModal {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
+  height: 500px;
+  padding: 0 10px;
+  overflow: scroll;
+}
 
-  h1 {
-    border-bottom: 1px solid $gray-200;
-    margin-bottom: 0;
-    padding: 1rem;
-  }
+.modal-content-chat {
+  background-color: white;
+}
 
-  .messages {
-    height: 100%;
-    overflow: scroll;
-    padding: 1rem;
-  }
+.all-messages {
+  height: 300px;
+  overflow-y: scroll;
+}
 
-  #vet-message {
-    background-color: rgb(245, 250, 245);
-    font-style: italic;
+.message {
+  background-color: #0A9E8F;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: fit-content;
 
-    .form-group {
-      margin-bottom: 0;
-    }
+  p {
+    margin: 0;
   }
 }
 
-#chatModal {
-    width: 500px;
-    max-height: 300px;
+#vet-message {
+  /* need to set the vet-message to the right */
 }
 
-#chatModal .modal-dialog {
-    width: 100%;
+#message_content {
+  width: 650px;
 }
