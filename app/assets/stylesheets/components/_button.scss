@@ -3,6 +3,11 @@
   border: 2px solid $pp-teal;
   color: $pp-teal;
   border-radius: 6px;
+  &:hover{
+    background-color: $pp-teal;
+    color: $white;
+    border: none;
+  }
 }
 
 .btn-secondary {
