@@ -263,6 +263,8 @@
     font-weight: bold;
     color: #ff0000;
     text-decoration: none;
+    border: 2px solid $pp-teal !important;
+    background-color: white !important;
   }
 
   .past {
@@ -306,8 +308,8 @@
 
   .has-events {
     /* Add professional style for .has-events */
-    background-color: #ffffcc;
-    border: 1px solid #cccc99;
+    background-color: $pp-light-teal;
+
     padding: 8px;
     margin-bottom: 4px;
   }
@@ -354,8 +356,8 @@
 }
 
 .heading-card-hp {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 38px;
+  margin-bottom: 38px;
 
   h1 {
     margin: 0 auto;

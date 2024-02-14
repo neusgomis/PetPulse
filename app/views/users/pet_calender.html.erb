@@ -3,7 +3,7 @@
 <div class="row justify-content-center search-evt">
   <div class="col-sm-8 my-3">
     <%= form_with url: pet_calender_users_path, method: :get, class: "d-flex my-3 search" do %>
-    <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -29,19 +29,33 @@
   <div class="centered-content event-page" style="text-align: center;">
     <h1>Your Events</h1>
     <div class="all-event">
-    <% @bookings.each do |booking| %>
-      <div class="booking-details">
-
-        <h6><%= booking.time%></h6>
-        <p><%= booking.pet.name %> event</p>
-        <%= link_to "",
-          booking_path(booking),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "fa-regular fa-trash-can"
-
-        %>
-      </div>
-    <% end %>
+      <% @bookings.each do |booking| %>
+        <div class="booking-details">
+          <% pet = booking.pet %>
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <% if pet.avatar_pic.attached? %>
+              <div>
+                <%= link_to pet_path(pet) do %>
+                  <%= image_tag pet.avatar_pic.service.send(:object_for, pet.avatar_pic.key).public_url, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+                <% end %>
+              </div>
+            <% else %>
+              <div>
+                <%= link_to pet_path(pet) do %>
+                  <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
+                <% end %>
+              </div>
+            <% end %>
+            <div><h6><%= booking.pet.name %></h6></div>
+          </div>
+          <p><%= booking.time%></p>
+          <%= link_to "",
+            booking_path(booking),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "fa-regular fa-trash-can"
+          %>
+        </div>
+      <% end %>
     </div>
     <!-- Icon to trigger modal -->
     <div class="event-btn">
@@ -61,5 +75,4 @@
     </div>
     <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary-reverse" %>
   </div>
-
 </div>

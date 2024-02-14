@@ -21,8 +21,12 @@ h3{
   font-size: bold ;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   background-color: #f8f9fa;
   border: none;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu-end[data-bs-popper] {
+  top: 85px;
 }
