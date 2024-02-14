@@ -18,14 +18,30 @@
   margin-bottom: 8px;
   // margin-top: 20px;
   border-radius: 10px;
+  width: 700px;
+
+  .records-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 24px;
+    margin-left: 14px;
+  }
+
+  .posts-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 38px;
+    margin-left: 18px;
+  }
 }
 
 .card-dashboard img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   margin: 10px;
-  border-radius: 50%;
 }
 
 .card-dashboard h2 {
