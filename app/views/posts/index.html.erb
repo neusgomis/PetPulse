@@ -1,101 +1,80 @@
 <div class="container">
 
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between align-items-center mt-4">
       <div>
       <h1><%= @pet.name %>'s Journal</h1>
       </div>
-        <!-- Search Bar Row -->
-        <div class="col-sm-8">
-          <%= form_with url: pet_posts_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "Search Posts by Title or Content"
-              %>
-            <!-- Form Submit Button -->
-            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-        <!-- End of Search Bar Row -->
+      <!-- Search Bar Row -->
+      <div class="col-sm-8">
+        <%= form_with url: pet_posts_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control mx-2 rounded",
+                placeholder: "Search Posts by Title or Content"
+            %>
+          <!-- Form Submit Button -->
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <!-- End of Search Bar Row -->
     </div>
+
 
 
     <div class="row post-card-container">
-      <% @posts.each do |post| %>
 
-        <div class="col-sm-4">
-          <div class="card post-index-card p-2 my-3">
+      <div class="col-sm-4">
+      <%# render post 0 %>
+            <%= render 'posts/card', post: @posts[0], title: @posts[0].title %>
+          <%# render post 3 %>
+            <%= render 'posts/card', post: @posts[3], title: @posts[3].title %>
+          <%# render post 6 %>
+            <%= render 'posts/card', post: @posts[6], title: @posts[6].title %>
+          <% if @posts[9] %>
+          <%# render post 9 %>
+            <%= render 'posts/card', post: @posts[9], title: @posts[9].title %>
+          <% end %>
+          <% if @posts[12] %>
+          <%# render post 12 %>
+            <%= render 'posts/card', post: @posts[12], title: @posts[12].title %>
+          <% end %>
 
-            <%#  Display Post Title%>
-            <h2>
-              <%= post.title %>
-            </h2>
-            <%# Display someof the Post Content %>
-            <p>
-              <%= post.content[0..200] %>
-              <small>...</small>
-            </p>
 
-            <%# Checks if there are no images attached to the post and iterates over the images if there are %>
-            <div class="d-flex flex-wrap">
-              <% unless post.images.all.empty?  %>
-                <% post.images.each do |img| %>
-                  <%# creates html with an image tag which gets the image from AWS and displays it with the post-pic-small css  %>
-                  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-small m-1' %>
-                <% end %>
-              <% end %>
-            </div>
-            <%# Checks if there are no files attached to the post and iterates over the files if there are %>
-            <% unless post.files.all.empty?  %>
-              <h5>Attached Files:</h5>
-              <ul>
-                <% post.files.each do |file| %>
-                  <li>
-                    <%# Checks if the file is previewable and creates a download link to the file if it is %>
-                    <%# The previewable? bit is not necessary for the link - it is to show a preview but that bit doesn't work yet %>
-                    <% if file.previewable? %>
-                      <%= link_to "#{file.filename}", rails_blob_path(file, disposition: "attachment") %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
+      </div>
 
-            <!-- Div to position icons and date at the bottom -->
-            <div class="post-card-bottom-text">
+      <div class="col-sm-4">
+          <%# render post 1 %>
+            <%= render 'posts/card', post: @posts[1], title: @posts[1].title %>
+          <%# render post 4 %>
+            <%= render 'posts/card', post: @posts[4], title: @posts[4].title %>
+          <%# render post 7 %>
+            <%= render 'posts/card', post: @posts[7], title: @posts[7].title %>
+          <% if @posts[10]%>
+          <%# render post 10 %>
+            <%= render 'posts/card', post: @posts[10], title: @posts[10].title %>
+          <% end %>
+          <% if @posts[13] %>
+            <%= render 'posts/card', post: @posts[13], title: @posts[13].title %>
+          <% end %>
+      </div>
 
-            <!-- Edit Icon -->
-            <div>
-              <%= link_to "View", pet_post_path(@pet, post) %>
-
-              <!-- Edit Icon -->
-              <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
-                <i class="fas fa-edit"></i>
-              </span>
-              <!-- End of Edit Icon -->
-
-              <!--Edit Modal -->
-              <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <%= render 'posts/editform', post: post, pet: @pet  %>
-                  </div>
-                </div>
-              </div>
-              <!-- End of Edit Modal -->
-
-              <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-                <i class="fa-regular fa-trash-can"></i>
-              <% end %>
-
-                <p><%= post.created_at.strftime("%B %d, %Y") %></p>
-              </div>
-            </div>
-          </div>
-    </div>
-    <% end %>
-
+      <div class="col-sm-4">
+          <%# render post 2 %>
+            <%= render 'posts/card', post: @posts[2], title: @posts[2].title %>
+          <%# render post 5 %>
+            <%= render 'posts/card', post: @posts[5], title: @posts[5].title %>
+          <%# render post 8 %>
+            <%= render 'posts/card', post: @posts[8], title: @posts[8].title %>
+          <% if @posts[11] %>
+          <%# render post 11 %>
+            <%= render 'posts/card', post: @posts[11], title: @posts[11].title %>
+          <% end %>
+          <% if @posts[14] %>
+          <%# render post 14 %>
+            <%= render 'posts/card', post: @posts[14], title: @posts[14].title %>
+          <% end %>
+      </div>
     </div>
   </div>
 
