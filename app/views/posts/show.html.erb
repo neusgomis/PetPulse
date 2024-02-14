@@ -7,7 +7,7 @@
 
 <%# iterates over the images in each post and creates a preview pic, styled by post-pic-large %>
 <% @post.images.each do |img| %>
-  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large' %>
+  <%= image_tag img.service.send(:object_for, img.key).public_url, class: 'header-img post-pic-large m-5' %>
 <% end %>
 
 

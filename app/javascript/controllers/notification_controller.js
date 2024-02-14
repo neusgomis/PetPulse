@@ -10,21 +10,21 @@ export default class extends Controller {
     console.log(this.targets);
     console.log("Hello from notification controller");
 
-    const notificationIconElement = this.notificationIconTarget; // Access the specific DOM element
-
+    this.notificationIconElement = this.notificationIconTarget; // Access the specific DOM element
+    console.log(this.notificationIconElement);
     this.channel = createConsumer().subscriptions.create(
       { channel: "NotificationChannel", id: this.userIdValue },
       { received: (data) => {
         console.log(data);
         console.log("test");
         // show the incoming message icon
-        notificationIconElement.classList.remove('d-none');
+        this.notificationIconElement.classList.remove('d-none');
       }}
     );
     console.log(`Subscribed to the chatroom with the id ${this.userIdValue}.`);
   }
 
   toggle() {
-
+    this.notificationIconElement.classList.add('d-none');
   }
 }
