@@ -27,12 +27,13 @@
     <% end %>
   </div>
   <div class="centered-content event-page" style="text-align: center;">
-    <h1>Your Event</h1>
+    <h1>Your Events</h1>
     <div class="all-event">
     <% @bookings.each do |booking| %>
-      <div>
-        <p><%= booking.pet.name %></p>
-        <p><%= booking.time%></p>
+      <div class="booking-details">
+
+        <h6><%= booking.time%></h6>
+        <p><%= booking.pet.name %> event</p>
         <%= link_to "",
           booking_path(booking),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},

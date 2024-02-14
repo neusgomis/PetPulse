@@ -26,13 +26,13 @@
                 placeholder: "Type a keyword"
             %>
           <!-- Form Submit Button -->
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary-reverse" %>
         <% end %>
       </div>
       <!-- End of Search Bar Row -->
   </div>
   <div class="row justify-content-center">
-    <div class="col-auto">
+    <div class="col-auto all-records">
       <div id="records">
         <% if @records.any? %>
           <% @records.each do |record| %>
@@ -112,11 +112,11 @@
   <!-- Buttons Section -->
   <div class="medical-buttons">
     <!-- Button to Create New Record Modal -->
-    <button type="button" data-bs-toggle="modal" data-bs-target="#addRecordModal" class="btn btn-primary records-btn">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#addRecordModal" class="btn btn-primary-reverse records-btn">
         Create a new Record
     </button>
     <!-- Button to Back to Dashboard -->
-    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-primary records-btn"%>
+    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary-reverse records-btn"%>
   </div>
 </div>
 <!-- End of Cards Container -->
