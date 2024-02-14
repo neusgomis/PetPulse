@@ -18,9 +18,13 @@ export default class extends Controller {
         console.log(data);
         console.log("test");
         // show the incoming message icon
-        notificationIconElement.classList.toggle('d-none');
+        notificationIconElement.classList.remove('d-none');
       }}
     );
     console.log(`Subscribed to the chatroom with the id ${this.userIdValue}.`);
+  }
+
+  toggle() {
+
   }
 }

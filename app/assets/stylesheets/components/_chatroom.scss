@@ -1,14 +1,12 @@
-#chatModal {
+
+.content-chat {
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 500px;
   padding: 0 10px;
   overflow: scroll;
-}
-
-.modal-content-chat {
-  background-color: white;
 }
 
 .all-messages {
