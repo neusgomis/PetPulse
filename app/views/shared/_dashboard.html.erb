@@ -23,7 +23,7 @@
   <div class="main-dashboard-section">
     <!-- Cards representing different sections of the pet dashboard -->
     <div class="card-dashboard-container">
-      <%= link_to pet_records_path(@pet) do %>
+      <%= link_to pet_records_path(@pet), class: "records-card" do %>
         <div class="card-dashboard">
           <% if @pet %>
             <%= image_tag("records_card.png", alt: "Medical Records") %>
@@ -35,7 +35,7 @@
         </div>
       <% end %>
 
-      <%= link_to pet_posts_path(@pet) do %>
+      <%= link_to pet_posts_path(@pet), class: "posts-card" do %>
         <div class="card-dashboard">
           <% if @pet %>
             <%= image_tag("journal.png", alt: "Pet Journal") %>
