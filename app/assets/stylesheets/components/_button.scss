@@ -1,8 +1,63 @@
+// .btn-primary {
+//   background-color: $white;
+//   border: 2px solid $pp-teal;
+//   color: $pp-teal;
+//   border-radius: 6px;
+//   &:hover{
+//     background-color: $pp-teal;
+//     color: $white;
+//     border: none;
+//   }
+// }
+
 .btn-primary {
   background-color: $white;
   border: 2px solid $pp-teal;
   color: $pp-teal;
   border-radius: 6px;
+
+  &:hover{
+    border: 2px solid $pp-teal !important;
+    background-color: $pp-teal;
+    color: $white;
+    border: none;
+  }
+}
+
+.btn-primary-reverse {
+  background-color: $pp-teal;
+  border: 2px solid $pp-teal !important;
+  color: $white;
+  border: none;
+  border-radius: 6px;
+
+  &:hover{
+    background-color: $white;
+    color: $pp-teal;
+    border: 2px solid $pp-teal;
+  }
+}
+
+
+.btn-secondary {
+  background-color: $pp-teal;
+  border: 2px solid $pp-teal !important;
+  color: white;
+  border-radius: 6px;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: $pp-teal;
+  }
+}
+
+.btn-secondary-reverse {
+  background-color: $white;
+  border: 2px solid $pp-teal !important;
+  color: $pp-teal;
+  border-radius: 6px;
+
   &:hover{
     background-color: $pp-teal;
     color: $white;
@@ -10,16 +65,7 @@
   }
 }
 
-.btn-secondary {
-  background-color: $pp-teal;
-  color: white;
-  border-radius: 6px;
-  border: none;
-}
 
-.btn {
-
-}
 
 .large-button {
   background-color: $pp-teal;
