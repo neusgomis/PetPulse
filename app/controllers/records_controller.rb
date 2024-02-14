@@ -4,13 +4,13 @@ class RecordsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # Get all records for the pet
     @records = @pet.records
+    # Get a new instance of record for Modal form in index page
+    @record = Record.new
     # Filter records when a search query is present
     if params[:query].present?
       sql_subquery = "title ILIKE :query OR content ILIKE :query"
       @records = @records.where(sql_subquery, query: "%#{params[:query]}%")
     end
-    # Get a new instance of record for Modal form in index page
-    @record = Record.new
   end
 
   def show
@@ -26,13 +26,11 @@ class RecordsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # Set the pet for the record
     @record.pet = @pet
-    if @record.save
-      # If saved, redirect to the newly created record show page
-      redirect_to pet_record_path(@pet, @record), notice: "Successfully created record."
-    else
-      # If not saved, render the new form again
-      render action: 'new'
+    if params[:record][:images].present?
+      @record.images.attach(params[:record][:images])
     end
+    @record.save
+    redirect_to pet_records_path
   end
 
   def update
@@ -70,6 +68,6 @@ class RecordsController < ApplicationController
 
   # Permit parameters from form submission
   def allow_params
-    params.require(:record).permit(:title, :content, :pet_id, :title, :images, :videos, :files)
+    params.require(:record).permit(:title, :content, :pet_id, files: [])
   end
 end
