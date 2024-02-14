@@ -9,22 +9,18 @@ export default class extends Controller {
   connect() {
     console.log(this.targets);
     console.log("Hello from notification controller");
+
+    const notificationIconElement = this.notificationIconTarget; // Access the specific DOM element
+
     this.channel = createConsumer().subscriptions.create(
       { channel: "NotificationChannel", id: this.userIdValue },
       { received: (data) => {
         console.log(data);
         console.log("test");
-        // hide the no-notification icon
-        // this.msgIcon.classList.add('d-none');
-        // show the incoming message icon if you hiding it with bootstrap
-        //this.msgIcon.classList.remove('d-none');
-        this.notificationIconTarget.insertAdjacentHTML("beforeend", "<span class='badge bg-danger rounded-pill' id='notification'>(1)</span>");
+        // show the incoming message icon
+        notificationIconElement.classList.toggle('d-none');
       }}
     );
     console.log(`Subscribed to the chatroom with the id ${this.userIdValue}.`);
-  }
-
-  disconnect() {
-    $('#notification').remove()
   }
 }
