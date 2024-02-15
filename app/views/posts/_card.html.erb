@@ -52,34 +52,33 @@
               <% end %>
             </div>
             <!-- Div to position icons and date at the bottom -->
-            <div class="post-card-bottom-text">
+            <div class="post-card-bottom-text d-flex justify-content-between">
 
-              <!-- Edit Icon -->
-              <div>
+
+
                 <!-- Edit Icon -->
-                <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
+                <span class="m-2" type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
                   <i class="fas fa-edit"></i>
                 </span>
                 <!-- End of Edit Icon -->
-
-                <!--Edit Modal -->
-                <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content modal-padding">
-                      <%= render 'posts/editform', post: post, pet: @pet  %>
-                    </div>
-                  </div>
-                </div>
-                <!-- End of Edit Modal -->
-
+                <div class="m-2">
                   <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
                     <i class="fa-regular fa-trash-can"></i>
                   <% end %>
-              </div>
-            </div>
-              <div>
-                <p><%= post.created_at.strftime("%d %B, %Y") %></p>
-              </div>
+                </div>
+          </div>
+
+                <p class="mx-2"><%= post.created_at.strftime("%d %B, %Y") %></p>
 
 
           </div>
+
+          <!--Edit Modal -->
+          <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content modal-padding">
+                <%= render 'posts/editform', post: post, pet: @pet  %>
+              </div>
+            </div>
+          </div>
+          <!-- End of Edit Modal -->
