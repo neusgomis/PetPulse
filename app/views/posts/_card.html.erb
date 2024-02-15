@@ -1,9 +1,9 @@
 
-          <div class="card p-3 my-4 ">
+          <div class="card p-3 my-4 post-rounded post-card-bg">
             <div onclick="window.location='<%= pet_post_path(@pet, post) %>'">
               <div>
               <%#  Display Post Title%>
-              <h2>
+              <h2 class="post-card-heading">
                 <%= post.title %>
               </h2>
               </div>
@@ -27,7 +27,7 @@
                   </div>
                   <br>
                   <br>
-                  <br>
+
                 <% end %>
 
 
@@ -47,39 +47,39 @@
                 </ul>
                 <br>
                 <br>
-                <br>
+
 
               <% end %>
             </div>
             <!-- Div to position icons and date at the bottom -->
             <div class="post-card-bottom-text">
 
-            <!-- Edit Icon -->
-            <div>
-              <%= link_to "View", pet_post_path(@pet, post) %>
-
               <!-- Edit Icon -->
-              <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
-                <i class="fas fa-edit"></i>
-              </span>
-              <!-- End of Edit Icon -->
+              <div>
+                <!-- Edit Icon -->
+                <span type="button", data-bs-toggle="modal" data-bs-target="#editPostModal<%= post.id %>">
+                  <i class="fas fa-edit"></i>
+                </span>
+                <!-- End of Edit Icon -->
 
-              <!--Edit Modal -->
-              <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <%= render 'posts/editform', post: post, pet: @pet  %>
+                <!--Edit Modal -->
+                <div class="modal fade" id="editPostModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <%= render 'posts/editform', post: post, pet: @pet  %>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- End of Edit Modal -->
+                <!-- End of Edit Modal -->
 
-              <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-                <i class="fa-regular fa-trash-can"></i>
-              <% end %>
-
-                <p><%= post.created_at.strftime("%B %d, %Y") %></p>
-
+                  <%= link_to pet_post_path(@pet, post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                    <i class="fa-regular fa-trash-can"></i>
+                  <% end %>
               </div>
             </div>
+              <div>
+                <p><%= post.created_at.strftime("%d %B, %Y") %></p>
+              </div>
+
+
           </div>

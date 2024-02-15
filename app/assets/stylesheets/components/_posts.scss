@@ -20,14 +20,31 @@
   }
 }
 
-.post-card-container {
-  height: 70vh;
-  overflow-y: auto;
-}
+// .post-card-container {
+//   height: 70vh;
+//   overflow-y: auto;
+// }
 
 
 
 .post-card-bottom-text {
   position: absolute;
   bottom: 0;
+}
+
+.post-card-heading {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.post-rounded {
+  border-radius: 6px !important;
+}
+
+.post-search-white {
+  background-color: var(--bs-body-bg);
+}
+
+post-card-bg {
+  background-color: white !important;
 }
