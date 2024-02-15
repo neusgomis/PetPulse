@@ -25,11 +25,15 @@
     <div class="row post-card-container">
 
       <div class="col-sm-4">
+          <% if @posts[0] %>
           <%# render post 0 %>
             <%= render 'posts/card', post: @posts[0], title: @posts[0].title %>
+          <% end %>
 
+          <% if @posts[3] %>
           <%# render post 3 %>
             <%= render 'posts/card', post: @posts[3], title: @posts[3].title %>
+          <% end %>
 
           <% if @posts[6] %>
           <%# render post 6 %>
@@ -50,11 +54,16 @@
       </div>
 
       <div class="col-sm-4">
+
+          <% if @posts[1] %>
           <%# render post 1 %>
             <%= render 'posts/card', post: @posts[1], title: @posts[1].title %>
+          <% end %>
 
+          <% if @posts[4] %>
           <%# render post 4 %>
             <%= render 'posts/card', post: @posts[4], title: @posts[4].title %>
+          <% end %>
 
           <% if @posts[7]%>
           <%# render post 7 %>
@@ -72,17 +81,21 @@
       </div>
 
       <div class="col-sm-4">
+          <% if @posts[2] %>
           <%# render post 2 %>
             <%= render 'posts/card', post: @posts[2], title: @posts[2].title %>
+          <% end %>
 
+          <% if @posts[5] %>
           <%# render post 5 %>
             <%= render 'posts/card', post: @posts[5], title: @posts[5].title %>
-
+          <% end %>
+          
           <% if @posts[8] %>
           <%# render post 8 %>
             <%= render 'posts/card', post: @posts[8], title: @posts[8].title %>
           <% end %>
-          
+
           <% if @posts[11] %>
           <%# render post 11 %>
             <%= render 'posts/card', post: @posts[11], title: @posts[11].title %>
