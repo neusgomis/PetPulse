@@ -25,16 +25,22 @@
     <div class="row post-card-container">
 
       <div class="col-sm-4">
-      <%# render post 0 %>
+          <%# render post 0 %>
             <%= render 'posts/card', post: @posts[0], title: @posts[0].title %>
+
           <%# render post 3 %>
             <%= render 'posts/card', post: @posts[3], title: @posts[3].title %>
+
+          <% if @posts[6] %>
           <%# render post 6 %>
             <%= render 'posts/card', post: @posts[6], title: @posts[6].title %>
+          <% end %>
+
           <% if @posts[9] %>
           <%# render post 9 %>
             <%= render 'posts/card', post: @posts[9], title: @posts[9].title %>
           <% end %>
+
           <% if @posts[12] %>
           <%# render post 12 %>
             <%= render 'posts/card', post: @posts[12], title: @posts[12].title %>
@@ -46,14 +52,20 @@
       <div class="col-sm-4">
           <%# render post 1 %>
             <%= render 'posts/card', post: @posts[1], title: @posts[1].title %>
+
           <%# render post 4 %>
             <%= render 'posts/card', post: @posts[4], title: @posts[4].title %>
+
+          <% if @posts[7]%>
           <%# render post 7 %>
             <%= render 'posts/card', post: @posts[7], title: @posts[7].title %>
+          <% end %>
+
           <% if @posts[10]%>
           <%# render post 10 %>
             <%= render 'posts/card', post: @posts[10], title: @posts[10].title %>
           <% end %>
+
           <% if @posts[13] %>
             <%= render 'posts/card', post: @posts[13], title: @posts[13].title %>
           <% end %>
@@ -62,14 +74,20 @@
       <div class="col-sm-4">
           <%# render post 2 %>
             <%= render 'posts/card', post: @posts[2], title: @posts[2].title %>
+
           <%# render post 5 %>
             <%= render 'posts/card', post: @posts[5], title: @posts[5].title %>
+
+          <% if @posts[8] %>
           <%# render post 8 %>
             <%= render 'posts/card', post: @posts[8], title: @posts[8].title %>
+          <% end %>
+          
           <% if @posts[11] %>
           <%# render post 11 %>
             <%= render 'posts/card', post: @posts[11], title: @posts[11].title %>
           <% end %>
+
           <% if @posts[14] %>
           <%# render post 14 %>
             <%= render 'posts/card', post: @posts[14], title: @posts[14].title %>
