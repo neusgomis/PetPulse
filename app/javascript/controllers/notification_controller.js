@@ -17,11 +17,11 @@ export default class extends Controller {
       { received: (data) => {
         console.log(data);
         console.log("test");
+        console.log(`Subscribed to the chatroom with the id ${this.userIdValue}.`);
         // show the incoming message icon
         this.notificationIconElement.classList.remove('d-none');
       }}
     );
-    console.log(`Subscribed to the chatroom with the id ${this.userIdValue}.`);
   }
 
   toggle() {
