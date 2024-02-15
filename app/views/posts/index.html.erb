@@ -26,7 +26,7 @@
         <button  data-bs-toggle="modal" data-bs-target="#addPostModal" class="btn btn-primary reverse">
       New Post
       </button>
-        <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary" %>
+        <%= link_to "Dashboard", dashboard_path, class: "btn btn-secondary" %>
       </div>
     </div>
   <!-- End of Search Bar Row -->
@@ -125,7 +125,7 @@
   <!-- Create New Record Modal -->
   <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-padding">
         <%= render 'posts/form', post: @post, pet: @pet %>
       </div>
     </div>

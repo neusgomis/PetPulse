@@ -2,7 +2,7 @@
 <!-- Create New Record Modal -->
 <div class="modal fade" id="addRecordModal" tabindex="-1" role="dialog" aria-labelledby="addRecordModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-padding">
       <%= render 'records/form', record: @record %>
     </div>
   </div>
@@ -94,7 +94,7 @@
                   <!--Edit Modal -->
                   <div class="modal fade" id="editRecordModal<%= record.id %>" tabindex="-1" role="dialog" aria-labelledby="editRecordModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content">
+                      <div class="modal-content modal-padding">
                         <%= render 'records/editform', record: record %>
                       </div>
                     </div>
