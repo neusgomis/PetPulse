@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center booking-pg">
+<div class="d-flex justify-content-center align-items-start booking-pg">
 
   <div class="calendar-container">
 
@@ -27,12 +27,11 @@
     <% end %>
   </div>
   <div class="centered-content event-page" style="text-align: center;">
-    <h1>Your Events</h1>
-    <div class="all-event">
+    <div>
       <% @bookings.each do |booking| %>
         <div class="booking-details">
           <% pet = booking.pet %>
-          <div class="d-flex align-items-center gap-3 mb-2">
+          <div class="d-flex align-items-center gap-3 mb-2 avatar-booking-pg">
             <% if pet.avatar_pic.attached? %>
               <div>
                 <%= link_to pet_path(pet) do %>
@@ -73,6 +72,6 @@
         </div>
       </div>
     </div>
-    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary-reverse" %>
+    <%= link_to "Dashboard", dashboard_path, class: "btn btn-secondary-reverse" %>
   </div>
 </div>
