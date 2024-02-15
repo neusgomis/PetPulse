@@ -13,7 +13,16 @@
 <div class="big-records-card">
   <div class="records-title-row">
     <!-- Page Title -->
-    <h1>Medical Records for <%= @pet.name %></h1>
+    <h1> <%= @pet.name %>'s Medical Records</h1>
+    <!-- Buttons Div -->
+    <div class="medical-buttons">
+      <!-- Button to Create New Record Modal -->
+      <button type="button" data-bs-toggle="modal" data-bs-target="#addRecordModal" class="btn btn-primary-reverse records-btn">
+          Create a new Record
+      </button>
+      <!-- Button to Back to Dashboard -->
+      <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary-reverse records-btn"%>
+    </div>
   </div>
 <!-- End of Icon to trigger Create New Record Modal -->
   <div class="row justify-content-center search-bar-records">
@@ -36,7 +45,7 @@
       <div id="records">
         <% if @records.any? %>
           <% @records.each do |record| %>
-              <div class="card my-3">
+              <div class="card record-card my-3">
                 <!-- Card Title -->
                 <div class="card-header record-title">
                   <h3><%= record.title %></h3>
@@ -107,16 +116,6 @@
         <% end %>
       </div>
     </div>
-  </div>
-
-  <!-- Buttons Section -->
-  <div class="medical-buttons">
-    <!-- Button to Create New Record Modal -->
-    <button type="button" data-bs-toggle="modal" data-bs-target="#addRecordModal" class="btn btn-primary-reverse records-btn">
-        Create a new Record
-    </button>
-    <!-- Button to Back to Dashboard -->
-    <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary-reverse records-btn"%>
   </div>
 </div>
 <!-- End of Cards Container -->
