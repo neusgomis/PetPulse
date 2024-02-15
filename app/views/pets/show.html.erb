@@ -5,11 +5,11 @@
   <div class="dashboard-title">
     <h1><%= @pet.name %> Health-Hub</h1>
   </div>
-  
+
   <!-- Icon to Open Chat Modal -->
   <a data-bs-toggle="modal" data-bs-target="#chatModal" data-controller="notification" data-notification-user-id-value="<%= current_user.id %>" data-action="click->notification#toggle" >
     <%= image_tag "VetChat.png", alt: "Chat Icon", width: "100", height: "100", class: "chat-img" %>
-    <i class="fa-solid fa-envelope fa-lg notification-icon d-none", data-target="notification.notificationIcon", style="color: #ff0000;"></i>
+    <i class="fa-solid fa-envelope fa-lg notification-icon d-none", data-notification-target="notificationIcon", style="color: #ff0000;"></i>
   </a>
 </div>
 
