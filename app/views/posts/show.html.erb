@@ -37,6 +37,7 @@
     <% end %>
   </div>
 
+  <p><%= @post.created_at.strftime("%d %B, %Y") %></p>
 
   <%= link_to 'Back to Posts', pet_posts_path, class: "btn btn-primary" %>
 </div>

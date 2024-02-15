@@ -1,29 +1,37 @@
 <div class="container">
 
 
-    <div class="d-flex justify-content-between align-items-center mt-4">
       <div>
-      <h1><%= @pet.name %>'s Journal</h1>
+      <h1 class="mt-4"><%= @pet.name %>'s Journal</h1>
       </div>
-      <!-- Search Bar Row -->
-      <div class="col-sm-8">
-        <%= form_with url: pet_posts_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control mx-2 rounded",
-                placeholder: "Search Posts by Title or Content"
-            %>
-          <!-- Form Submit Button -->
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      <!-- End of Search Bar Row -->
+
+  <div class="d-flex justify-content-between align-items-center mt-4">
+
+    <!-- Search Bar Row -->
+    <div class="col-sm-8 ">
+      <%= form_with url: pet_posts_path, method: :get, class: "d-flex search post-search-white" do %>
+      <i class="fa-solid fa-magnifying-glass post-search-white"></i>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mx-2 rounded",
+            placeholder: "Search Posts by Title or Content"
+          %>
+        <!-- Form Submit Button -->
+        <%# <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
 
-
+  <!-- New and Dashboard Buttons -->
+      <div>
+        <button  data-bs-toggle="modal" data-bs-target="#addPostModal" class="btn btn-primary reverse">
+      New Post
+      </button>
+        <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <!-- End of Search Bar Row -->
 
     <div class="row post-card-container">
-
       <div class="col-sm-4">
           <% if @posts[0] %>
           <%# render post 0 %>
@@ -90,7 +98,7 @@
           <%# render post 5 %>
             <%= render 'posts/card', post: @posts[5], title: @posts[5].title %>
           <% end %>
-          
+
           <% if @posts[8] %>
           <%# render post 8 %>
             <%= render 'posts/card', post: @posts[8], title: @posts[8].title %>
@@ -111,10 +119,7 @@
 
 <div class="container py-3">
     <!-- Icon to trigger Create New Record Modal -->
-  <button  data-bs-toggle="modal" data-bs-target="#addPostModal" class="btn btn-primary reverse">
-    <!-- Placeholder icon below - TODO: replace this later-->
-    New Post
-  </button>
+
   <!-- End of Icon to trigger Create New Record Modal -->
 
   <!-- Create New Record Modal -->
@@ -127,7 +132,7 @@
   </div>
 
   <!-- End of Create New Record Modal> -->
-  <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary" %>
+
   <%# <%= link_to "New Post", new_pet_post_path, class: "btn btn-primary" %>
   </div>
 </div>
