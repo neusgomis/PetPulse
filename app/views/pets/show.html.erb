@@ -5,6 +5,7 @@
   <div class="dashboard-title">
     <h1><%= @pet.name %> Health-Hub</h1>
   </div>
+  
   <!-- Icon to Open Chat Modal -->
   <a data-bs-toggle="modal" data-bs-target="#chatModal" data-controller="notification" data-notification-user-id-value="<%= current_user.id %>" data-action="click->notification#toggle" >
     <%= image_tag "VetChat.png", alt: "Chat Icon", width: "100", height: "100", class: "chat-img" %>
@@ -14,6 +15,7 @@
 
   <!-- Render the shared dashboard partial -->
   <%= render "shared/dashboard" %>
+
 
 <!-- Chat Modal connected to chatroom subscription stimulus controller -->
 <div class="modal fade" role="dialog" data-backdrop="true" id="chatModal" tabindex="-1" aria-labelledby="chattModalLabel" aria-hidden="true">
@@ -45,9 +47,10 @@
   </div>
 </div>
 
-<div class="dashboard-calendar-btn col-10">
-<%= link_to "Go to calendar", pet_calender_users_path, class: "btn btn-primary" %>
+<div class="dashboard-calendar-btn">
+  <%= link_to "Calendar", pet_calender_users_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-secondary" %>
+<div class="dashboard-btn col-3">
+  <%= link_to "Dashboard", dashboard_path, class: "btn btn-secondary" %>
 </div>
