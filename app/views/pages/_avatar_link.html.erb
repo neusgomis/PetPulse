@@ -2,14 +2,15 @@
 <% @pets.each do |pet| %>
   <% if pet.avatar_pic.attached? %>
     <div>
+    <% condition = pet.id == params[:id].to_i ? "pet-avatar" : "" %>
       <%= link_to pet_path(pet) do %>
-        <%= image_tag pet.avatar_pic.service.send(:object_for, pet.avatar_pic.key).public_url, class: "pet-avatar rounded-circle", crop: :fill, width: 50, height: 50 %>
+        <%= image_tag pet.avatar_pic.service.send(:object_for, pet.avatar_pic.key).public_url, class: "rounded-circle #{condition}", crop: :fill, width: 60, height: 60 %>
       <% end %>
     </div>
   <% else %>
     <div>
       <%= link_to pet_path(pet) do %>
-        <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-image rounded-circle", width: 50, height: 50) %>
+        <%= image_tag("training.png", alt: "Placeholder Image", class: "placeholder-avatar rounded-circle", width: 60, height: 60) %>
       <% end %>
     </div>
   <% end %>
